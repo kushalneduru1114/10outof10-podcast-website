@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './WorkCard.module.css';
 
 const WorkCard = ({ work }) => {
-  const { title, type, year, role, description, link, image } = work;
+  const { title, type, year, role, description, link, image, thumbnailPosition } = work;
   const isExternalLink = link?.startsWith('http');
 
   const content = (
@@ -15,6 +15,7 @@ const WorkCard = ({ work }) => {
             alt={`${title} artwork`}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: 'cover', objectPosition: thumbnailPosition || 'center center' }}
             className={styles.workImage}
           />
         </div>

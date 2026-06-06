@@ -4,6 +4,7 @@ import { FaArrowRight, FaFilm, FaSpotify } from 'react-icons/fa';
 import { SPOTIFY_SHOW_URL } from './data';
 import HeroSpotifyWidget from './HeroSpotifyWidget';
 import styles from './HeroSection.module.css';
+import TransitionLink from './TransitionLink';
 
 const HERO_IMAGES = [
   { src: '/assets/FridayPic.jpg', alt: 'Friday independent film poster' },
@@ -62,10 +63,10 @@ const HeroSection = () => {
               Listen on Spotify
             </Link>
 
-            <Link href="/work" className={styles.secondaryButton}>
+            <TransitionLink href="/work" className={styles.secondaryButton}>
               Watch Our Work
               <FaArrowRight aria-hidden="true" />
-            </Link>
+            </TransitionLink>
           </div>
 
           <dl className={styles.stats}>

@@ -4,7 +4,7 @@ import { FaSpotify } from 'react-icons/fa';
 import styles from './EpisodeCard.module.css';
 
 const EpisodeCard = ({ episode }) => {
-  const { title, description, url, thumbnail } = episode;
+  const { title, description, url, thumbnail, thumbnailPosition } = episode;
   
   return (
     <article className={styles.card}>
@@ -14,7 +14,7 @@ const EpisodeCard = ({ episode }) => {
             src={thumbnail}
             alt={`${title} Thumbnail`}
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', objectPosition: thumbnailPosition || 'center center' }}
             sizes="150px"
           />
         </div>

@@ -47,6 +47,7 @@ export const EPISODES = [
     isPopular: false,
     isLatest: true,
     thumbnail: '/assets/FridayEver.jpg',
+    thumbnailPosition: 'top center',
   },
 ];
 
@@ -127,6 +128,7 @@ export const COMPLETED_WORKS = [
     description: 'Directed by Anand Karanam, this critically acclaimed independent feature tells the story of an insomniac IT employee preparing for a crucial meeting.',
     link: 'https://youtu.be/O_qo4q1JDbs?si=3UNHuaFGgnTjckLg',
     image: '/assets/FridayPic.jpg',
+    thumbnailPosition: 'top center',
   },
   {
     id: 'w4',

@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowLeft } from 'react-icons/fa';
+import TransitionLink from '../../../components/TransitionLink';
 import { BLOGS } from '../../../components/data';
+import { createPageMetadata } from '../../seo';
 import styles from './BlogPost.module.css';
 
 function getBlog(slug) {
@@ -22,15 +23,23 @@ export function generateMetadata({ params }) {
 
   if (!blog) {
     return {
-      title: 'Blog Post Not Found | Ten Out Of Ten',
+      title: 'Blog Post Not Found',
       description: 'The requested Ten Out Of Ten blog post could not be found.',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: `${blog.title} | Ten Out Of Ten`,
+  return createPageMetadata({
+    title: blog.title,
     description: blog.metaDescription || blog.description,
-  };
+    path: `/blog/${blog.slug}`,
+    image: blog.image,
+    imageAlt: `${blog.title} cover image`,
+    type: 'article',
+  });
 }
 
 export default function BlogPost({ params }) {
@@ -44,10 +53,10 @@ export default function BlogPost({ params }) {
 
   return (
     <article className={styles.container}>
-      <Link href="/blog" className={styles.backButton} aria-label="Go back to blog index">
+      <TransitionLink href="/blog" className={styles.backButton} aria-label="Go back to blog index">
         <FaArrowLeft aria-hidden="true" />
         Back to Blog
-      </Link>
+      </TransitionLink>
 
       <header className={styles.header}>
         {blog.subtitle && <p className={styles.subtitle}>{blog.subtitle}</p>}

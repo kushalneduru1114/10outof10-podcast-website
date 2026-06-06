@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaBars, FaMoon, FaSun, FaTimes } from 'react-icons/fa';
 import styles from './Header.module.css';
+import TransitionLink from './TransitionLink';
 
 const NAV_LINKS = [
   { name: 'HOME', href: '/' },
@@ -52,18 +52,18 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logoContainer} onClick={closeMenu}>
+        <TransitionLink href="/" className={styles.logoContainer} onClick={closeMenu}>
           <div style={{ position: 'relative', width: '2rem', height: '2rem' }}>
             <Image src="/assets/logo.svg" alt="10 OUT 10 Logo" fill />
           </div>
           <span className={styles.logoText}>TEN OUT OF TEN</span>
-        </Link>
+        </TransitionLink>
 
         <nav className={styles.nav} aria-label="Primary navigation">
           {NAV_LINKS.map((link) => (
-            <Link key={link.name} href={link.href} className={styles.navLink}>
+            <TransitionLink key={link.name} href={link.href} className={styles.navLink}>
               {link.name}
-            </Link>
+            </TransitionLink>
           ))}
         </nav>
 
@@ -96,9 +96,9 @@ const Header = () => {
         >
           <div className={styles.mobileMenuContent}>
             {NAV_LINKS.map((link) => (
-              <Link key={link.name} href={link.href} className={styles.mobileNavLink} onClick={closeMenu}>
+              <TransitionLink key={link.name} href={link.href} className={styles.mobileNavLink} onClick={closeMenu}>
                 {link.name}
-              </Link>
+              </TransitionLink>
             ))}
           </div>
         </nav>

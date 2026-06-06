@@ -1,9 +1,13 @@
 import styles from './ContactPage.module.css';
+import { createPageMetadata } from '../seo';
 
-export const metadata = {
-    title: 'Contact | Ten Out Of Ten',
+export const metadata = createPageMetadata({
+    title: 'Contact',
     description: 'Contact Ten Out Of Ten for film submissions, collaborations, partnerships, and independent film presentation opportunities.',
-};
+    path: '/contact',
+    image: '/assets/logo.svg',
+    imageAlt: 'Contact Ten Out Of Ten',
+});
 
 export default function ContactPage() {
     const emailAddress = 'tenoutoftenfilms@gmail.com';

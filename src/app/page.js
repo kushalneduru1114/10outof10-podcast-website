@@ -3,11 +3,15 @@ import GuestCard from '../components/GuestCard';
 import HeroSection from '../components/HeroSection';
 import { ABOUT_TEXT, EPISODES, GUESTS } from '../components/data';
 import styles from './HomePage.module.css';
+import { DEFAULT_TITLE, createPageMetadata } from './seo';
 
-export const metadata = {
-  title: 'Ten Out Of Ten | Cinema Podcast & Independent Films',
+export const metadata = createPageMetadata({
+  absoluteTitle: DEFAULT_TITLE,
   description: 'Ten Out Of Ten is a cinema podcast and independent film platform spotlighting conversations, short films, independent films, and Telugu cinema voices.',
-};
+  path: '/',
+  image: '/assets/mahanati.jpg',
+  imageAlt: 'Ten Out Of Ten cinema podcast artwork',
+});
 
 export default function Home() {
   const featuredEpisodes = EPISODES.filter((episode) => episode.isPopular || episode.isLatest);

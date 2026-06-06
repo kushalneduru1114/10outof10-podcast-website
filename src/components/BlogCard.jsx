@@ -1,15 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import styles from './BlogCard.module.css';
+import TransitionLink from './TransitionLink';
 
 export default function BlogCard({ blog }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link
+    <TransitionLink
       href={`/blog/${blog.slug}`}
       className={styles.card}
       onMouseEnter={() => setIsHovered(true)}
@@ -39,6 +39,6 @@ export default function BlogCard({ blog }) {
       <div className={styles.readMoreButton}>
         Read Blog
       </div>
-    </Link>
+    </TransitionLink>
   );
 }

@@ -1,11 +1,15 @@
 import WorkCard from '../../components/WorkCard';
 import { COMPLETED_WORKS, UPCOMING_WORKS } from '../../components/data';
 import styles from './WorkPage.module.css';
+import { createPageMetadata } from '../seo';
 
-export const metadata = {
-  title: 'Our Work | Ten Out Of Ten',
+export const metadata = createPageMetadata({
+  title: 'Our Work',
   description: 'Explore short films and independent films presented, distributed, produced, or promoted by Ten Out Of Ten.',
-};
+  path: '/work',
+  image: '/assets/FridayPic.jpg',
+  imageAlt: 'Independent films presented by Ten Out Of Ten',
+});
 
 export default function OurWorkPage() {
   return (
