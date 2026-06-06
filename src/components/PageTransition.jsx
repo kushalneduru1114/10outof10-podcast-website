@@ -5,9 +5,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './PageTransition.module.css';
 
 export const PAGE_TRANSITION_EVENT = 'tot-page-transition-start';
-export const PAGE_TRANSITION_COVER_MS = 420;
+export const PAGE_TRANSITION_COVER_MS = 1100;
 
-const TRANSITION_DURATION_MS = 1180;
+const RELEASE_START_MS = 1280;
+const TRANSITION_DURATION_MS = 2680;
+const TRANSITION_RELEASE_AT_KEY = 'tot-page-transition-release-at';
+const TRANSITION_ACTIVE_UNTIL_KEY = 'tot-page-transition-active-until';
 
 const PageTransition = () => {
   const pathname = usePathname();
@@ -15,6 +18,7 @@ const PageTransition = () => {
   const timeoutRefs = useRef([]);
   const [transitionState, setTransitionState] = useState({
     visible: false,
+    phase: 'cover',
     cycle: 0,
   });
 
@@ -28,21 +32,66 @@ const PageTransition = () => {
     timeoutRefs.current.push(timerId);
   }, []);
 
+  const clearStoredTransition = useCallback(() => {
+    window.sessionStorage.removeItem(TRANSITION_RELEASE_AT_KEY);
+    window.sessionStorage.removeItem(TRANSITION_ACTIVE_UNTIL_KEY);
+  }, []);
+
+  const scheduleTransitionTimers = useCallback((releaseAt, activeUntil) => {
+    queueTimer(() => {
+      setTransitionState((current) => (
+        current.visible ? { ...current, phase: 'release' } : current
+      ));
+    }, Math.max(0, releaseAt - Date.now()));
+
+    queueTimer(() => {
+      clearStoredTransition();
+      setTransitionState((current) => ({ ...current, visible: false }));
+    }, Math.max(0, activeUntil - Date.now()));
+  }, [clearStoredTransition, queueTimer]);
+
   const startTransition = useCallback(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      clearStoredTransition();
       return;
     }
+
+    const now = Date.now();
+    const releaseAt = now + RELEASE_START_MS;
+    const activeUntil = now + TRANSITION_DURATION_MS;
+
+    window.sessionStorage.setItem(TRANSITION_RELEASE_AT_KEY, String(releaseAt));
+    window.sessionStorage.setItem(TRANSITION_ACTIVE_UNTIL_KEY, String(activeUntil));
 
     clearTimers();
     setTransitionState((current) => ({
       visible: true,
+      phase: 'cover',
       cycle: current.cycle + 1,
     }));
 
-    queueTimer(() => {
-      setTransitionState((current) => ({ ...current, visible: false }));
-    }, TRANSITION_DURATION_MS);
-  }, [clearTimers, queueTimer]);
+    scheduleTransitionTimers(releaseAt, activeUntil);
+  }, [clearStoredTransition, clearTimers, scheduleTransitionTimers]);
+
+  useEffect(() => {
+    const activeUntil = Number.parseInt(window.sessionStorage.getItem(TRANSITION_ACTIVE_UNTIL_KEY) || '0', 10);
+    const releaseAt = Number.parseInt(window.sessionStorage.getItem(TRANSITION_RELEASE_AT_KEY) || '0', 10);
+    const now = Date.now();
+
+    if (!activeUntil || activeUntil <= now) {
+      clearStoredTransition();
+      return undefined;
+    }
+
+    setTransitionState((current) => ({
+      visible: true,
+      phase: releaseAt <= now ? 'release' : 'cover',
+      cycle: current.cycle + 1,
+    }));
+    scheduleTransitionTimers(releaseAt, activeUntil);
+
+    return undefined;
+  }, [clearStoredTransition, scheduleTransitionTimers]);
 
   useEffect(() => {
     const onTransitionStart = () => startTransition();
@@ -97,9 +146,10 @@ const PageTransition = () => {
           </svg>
           <div
             key={transitionState.cycle}
-            className={styles.overlay}
+            className={`${styles.overlay} ${transitionState.phase === 'release' ? styles.release : styles.cover}`}
             aria-hidden="true"
           >
+            <div className={styles.curtain} />
             <div className={`${styles.blob} ${styles.wave}`} />
             <div className={`${styles.blob} ${styles.blobA}`} />
             <div className={`${styles.blob} ${styles.blobB}`} />
