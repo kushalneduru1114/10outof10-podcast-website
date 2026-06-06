@@ -397,7 +397,7 @@ const HeroSpotifyWidget = () => {
               <span>{episode.episode ? `E${episode.episode}` : episode.episodeType}</span>
               <div>
                 <strong>{episode.title}</strong>
-                <small>{getEpisodeMeta(episode)} · {episode.duration || 'Audio'}</small>
+                <small>{getEpisodeMeta(episode)} - {episode.duration || 'Audio'}</small>
               </div>
             </button>
           ))}

@@ -470,8 +470,7 @@
     }
 
     .player,
-    .episodeRow,
-    .footer {
+    .episodeRow {
         grid-template-columns: 1fr;
     }
 
@@ -497,8 +496,7 @@
         flex-wrap: wrap;
     }
 
-    .volume,
-    .footer a {
+    .volume {
         margin-left: 0;
         justify-self: start;
     }
@@ -524,6 +522,26 @@
     }
 
     .footer {
-        gap: 0.65rem;
+        grid-template-columns: minmax(0, 0.72fr) minmax(0, 0.72fr) auto;
+        gap: 0.45rem;
+        align-items: center;
+    }
+
+    .footer strong {
+        font-size: 1.2rem;
+    }
+
+    .footer span {
+        font-size: 0.55rem;
+        letter-spacing: 0.06em;
+    }
+
+    .footer a {
+        justify-self: end;
+        min-height: 2.1rem;
+        padding: 0.45rem 0.55rem;
+        border-radius: 0.55rem;
+        font-size: clamp(0.62rem, 2.8vw, 0.72rem);
+        white-space: nowrap;
     }
 }

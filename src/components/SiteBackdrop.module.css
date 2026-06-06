@@ -34,6 +34,118 @@
     animation: glowDrift 20s ease-in-out infinite alternate-reverse;
 }
 
+.mediaLayer {
+    position: absolute;
+    inset: -6rem -4rem auto;
+    height: 135vh;
+    min-height: 980px;
+    opacity: 0.42;
+    filter: saturate(0.82);
+    transition: transform 140ms linear;
+}
+
+.mediaLayer::after {
+    content: '';
+    position: absolute;
+    inset: -8rem;
+    background:
+        linear-gradient(180deg, rgba(13, 4, 23, 0.66), rgba(45, 16, 72, 0.48) 36%, rgba(11, 6, 30, 0.72)),
+        radial-gradient(circle at 50% 18%, rgba(133, 88, 219, 0.32), transparent 30rem);
+}
+
+.mediaThumb {
+    position: absolute;
+    width: clamp(8rem, 16vw, 17rem);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.55rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
+    opacity: 0.34;
+    filter: blur(0.35px) contrast(0.9) brightness(0.68);
+    transform: rotate(var(--media-rotation, -4deg));
+    animation: mediaDrift 18s ease-in-out infinite alternate;
+}
+
+.mediaThumb[data-index='1'] {
+    left: 4%;
+    top: 12%;
+    --media-rotation: -6deg;
+    --media-rotation-end: 4deg;
+}
+
+.mediaThumb[data-index='2'] {
+    left: 74%;
+    top: 10%;
+    --media-rotation: 5deg;
+    --media-rotation-end: -3deg;
+    animation-delay: -4s;
+}
+
+.mediaThumb[data-index='3'] {
+    left: 62%;
+    top: 42%;
+    --media-rotation: -2deg;
+    --media-rotation-end: 3deg;
+    animation-delay: -8s;
+}
+
+.mediaThumb[data-index='4'] {
+    left: 8%;
+    top: 58%;
+    --media-rotation: 4deg;
+    --media-rotation-end: -5deg;
+    animation-delay: -11s;
+}
+
+.mediaThumb[data-index='5'] {
+    left: 78%;
+    top: 74%;
+    --media-rotation: -7deg;
+    --media-rotation-end: 5deg;
+    animation-delay: -14s;
+}
+
+.mediaThumb[data-index='6'] {
+    left: 42%;
+    top: 20%;
+    width: clamp(6.5rem, 10vw, 10rem);
+    aspect-ratio: 1;
+    --media-rotation: 7deg;
+    --media-rotation-end: -4deg;
+    animation-delay: -7s;
+}
+
+.mediaThumb[data-index='7'] {
+    left: 25%;
+    top: 38%;
+    width: clamp(6.25rem, 9vw, 9rem);
+    aspect-ratio: 1;
+    --media-rotation: -9deg;
+    --media-rotation-end: 6deg;
+    animation-delay: -12s;
+}
+
+.mediaThumb[data-index='8'] {
+    left: 50%;
+    top: 72%;
+    width: clamp(6.25rem, 9vw, 9rem);
+    aspect-ratio: 1;
+    --media-rotation: 6deg;
+    --media-rotation-end: -5deg;
+    animation-delay: -16s;
+}
+
+.mediaThumb[data-index='9'] {
+    left: 30%;
+    top: 82%;
+    width: clamp(6.25rem, 9vw, 9rem);
+    aspect-ratio: 1;
+    --media-rotation: -3deg;
+    --media-rotation-end: 4deg;
+    animation-delay: -19s;
+}
+
 .farLayer,
 .nearLayer {
     position: absolute;
@@ -96,12 +208,76 @@
     }
 }
 
+@keyframes mediaDrift {
+    from {
+        transform: translate3d(-0.45rem, -0.35rem, 0) rotate(var(--media-rotation, -4deg)) scale(1);
+    }
+    to {
+        transform: translate3d(0.55rem, 0.45rem, 0) rotate(var(--media-rotation-end, 4deg)) scale(1.03);
+    }
+}
+
+@media (max-width: 760px) {
+    .mediaLayer {
+        inset: -3rem -6rem auto;
+        height: 125vh;
+        opacity: 0.3;
+    }
+
+    .mediaThumb {
+        width: clamp(7rem, 36vw, 10rem);
+        opacity: 0.26;
+        filter: blur(0.65px) contrast(0.85) brightness(0.58);
+    }
+
+    .mediaThumb[data-index='1'] {
+        left: 55%;
+        top: 12%;
+    }
+
+    .mediaThumb[data-index='2'] {
+        left: -2%;
+        top: 36%;
+    }
+
+    .mediaThumb[data-index='3'] {
+        left: 58%;
+        top: 62%;
+    }
+
+    .mediaThumb[data-index='4'],
+    .mediaThumb[data-index='5'] {
+        display: none;
+    }
+
+    .mediaThumb[data-index='6'] {
+        left: 10%;
+        top: 16%;
+    }
+
+    .mediaThumb[data-index='7'] {
+        left: 68%;
+        top: 44%;
+    }
+
+    .mediaThumb[data-index='8'] {
+        left: 14%;
+        top: 78%;
+    }
+
+    .mediaThumb[data-index='9'] {
+        display: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .farLayer,
     .nearLayer,
     .farLayer path,
     .farLayer circle,
     .nearLayer path,
+    .mediaLayer,
+    .mediaThumb,
     .glowOne,
     .glowTwo {
         transform: none !important;
