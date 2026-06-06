@@ -329,6 +329,7 @@ const HeroSpotifyWidget = () => {
                 step="1"
                 value={Math.min(currentTime, progressMax)}
                 aria-label="Playback progress"
+                suppressHydrationWarning
                 onChange={seekAudio}
               />
               <span>{formatTime(progressMax)}</span>
@@ -364,6 +365,7 @@ const HeroSpotifyWidget = () => {
               step="0.05"
               value={volume}
               aria-label="Volume"
+              suppressHydrationWarning
               onChange={(event) => setVolume(Number.parseFloat(event.target.value))}
             />
           </span>

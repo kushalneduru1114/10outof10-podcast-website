@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './WorkCard.module.css';
 
-const WorkCard = ({ work }) => {
+const WorkCard = ({ work, priority = false }) => {
   const { title, type, year, role, description, link, image, thumbnailPosition } = work;
   const isExternalLink = link?.startsWith('http');
 
@@ -17,13 +17,14 @@ const WorkCard = ({ work }) => {
             sizes="(max-width: 768px) 100vw, 50vw"
             style={{ objectFit: 'cover', objectPosition: thumbnailPosition || 'center center' }}
             className={styles.workImage}
+            priority={priority}
           />
         </div>
       )}
 
       <div className={styles.textContent}>
         <p className={styles.subInfo}>
-          {type} / {year}
+          {[type, year].filter(Boolean).join(' / ')}
         </p>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.role}>{role}</p>

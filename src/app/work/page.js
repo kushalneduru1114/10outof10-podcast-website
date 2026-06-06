@@ -1,5 +1,5 @@
 import WorkCard from '../../components/WorkCard';
-import { COMPLETED_WORKS, UPCOMING_WORKS } from '../../components/data';
+import { CO_PRODUCED_WORKS, COMPLETED_WORKS, UPCOMING_WORKS } from '../../components/data';
 import styles from './WorkPage.module.css';
 import { createPageMetadata } from '../seo';
 
@@ -17,7 +17,16 @@ export default function OurWorkPage() {
       <section>
         <h1 className={styles.sectionTitle}>Our Work</h1>
         <div className={styles.workGrid}>
-          {COMPLETED_WORKS.map((work) => (
+          {COMPLETED_WORKS.map((work, index) => (
+            <WorkCard key={work.id} work={work} priority={index === 0} />
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 className={styles.sectionTitle}>Co-Produced</h2>
+        <div className={styles.workGrid}>
+          {CO_PRODUCED_WORKS.map((work) => (
             <WorkCard key={work.id} work={work} />
           ))}
         </div>

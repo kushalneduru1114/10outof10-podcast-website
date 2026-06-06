@@ -6,9 +6,10 @@ import styles from './TeamMemberCard.module.css';
 const TeamMemberCard = ({ member }) => {
   const { firstName, lastName, position, tenure, image, instagram } = member;
   const fullName = [firstName, lastName].filter(Boolean).join(' ');
+  const cardClassName = member.id === 'tm7' ? `${styles.card} ${styles.featuredCard}` : styles.card;
 
   return (
-    <div className={styles.card}>
+    <div className={cardClassName}>
       <div className={styles.imageWrapper}>
         <Image
           src={image}

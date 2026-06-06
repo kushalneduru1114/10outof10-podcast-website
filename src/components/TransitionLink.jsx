@@ -2,9 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { PAGE_TRANSITION_EVENT } from './PageTransition';
-
-const NAVIGATION_DELAY_MS = 240;
+import { PAGE_TRANSITION_COVER_MS, PAGE_TRANSITION_EVENT } from './PageTransition';
 
 function isModifiedEvent(event) {
   return event.metaKey || event.altKey || event.ctrlKey || event.shiftKey;
@@ -52,7 +50,11 @@ const TransitionLink = ({ href, onClick, target, replace = false, scroll, ...pro
     }
 
     event.preventDefault();
-    window.dispatchEvent(new CustomEvent(PAGE_TRANSITION_EVENT));
+    if (typeof window.__totStartPageTransition === 'function') {
+      window.__totStartPageTransition();
+    } else {
+      window.dispatchEvent(new CustomEvent(PAGE_TRANSITION_EVENT));
+    }
 
     window.setTimeout(() => {
       if (replace) {
@@ -60,7 +62,7 @@ const TransitionLink = ({ href, onClick, target, replace = false, scroll, ...pro
       } else {
         router.push(hrefString, { scroll });
       }
-    }, NAVIGATION_DELAY_MS);
+    }, PAGE_TRANSITION_COVER_MS);
   };
 
   return (

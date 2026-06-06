@@ -4,7 +4,7 @@ import styles from './TeamPage.module.css';
 import { createPageMetadata } from '../seo';
 
 export const metadata = createPageMetadata({
-  title: 'Our Team',
+  title: 'Team',
   description: 'Meet the hosts, producers, designers, and collaborators behind the Ten Out Of Ten cinema podcast and film platform.',
   path: '/team',
   image: '/assets/pranav-bellary-new.jpeg',

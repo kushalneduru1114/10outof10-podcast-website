@@ -152,6 +152,63 @@ export const COMPLETED_WORKS = [
   },
 ];
 
+export const CO_PRODUCED_WORKS = [
+  {
+    id: 'cp1',
+    title: 'Kalasalao',
+    type: 'Short Film',
+    role: 'Co-Produced',
+    description: 'A Ten Out Of Ten co-produced short film.',
+    link: 'https://youtu.be/-UnR0FpGG6k?si=NbUO-6Ab5IHea0Bf',
+    image: 'https://i.ytimg.com/vi/-UnR0FpGG6k/hqdefault.jpg',
+  },
+  {
+    id: 'cp2',
+    title: 'Uchitha Salaha',
+    type: 'Short Film',
+    role: 'Co-Produced',
+    description: 'A Ten Out Of Ten co-produced short film.',
+    link: 'https://youtu.be/g7pZB_Iti3w?si=SuzwXkzCvM4gX6ly',
+    image: 'https://i.ytimg.com/vi/g7pZB_Iti3w/hqdefault.jpg',
+  },
+  {
+    id: 'cp3',
+    title: 'Clouds of August',
+    type: 'Short Film',
+    role: 'Co-Produced',
+    description: 'A Ten Out Of Ten co-produced short film.',
+    link: 'https://youtu.be/GKvTuSYGmX0?si=IaufXDgcig4ABUII',
+    image: 'https://i.ytimg.com/vi/GKvTuSYGmX0/hqdefault.jpg',
+  },
+  {
+    id: 'cp4',
+    title: 'Agent Viper',
+    type: 'Short Film',
+    role: 'Co-Produced',
+    description: 'A Ten Out Of Ten co-produced short film.',
+    link: 'https://youtu.be/bxRs12Hq4v8?si=EPHN5ed42hV-R0ho',
+    image: 'https://i.ytimg.com/vi/bxRs12Hq4v8/hqdefault.jpg',
+  },
+  {
+    id: 'cp5',
+    title: 'Another',
+    type: 'Short Film',
+    role: 'Co-Produced',
+    description: 'A Ten Out Of Ten co-produced short film.',
+    link: 'https://youtu.be/i0n99ayAmYo?si=4Kfvee6fRAoPg6-l',
+    image: 'https://i.ytimg.com/vi/i0n99ayAmYo/hqdefault.jpg',
+  },
+  {
+    id: 'cp6',
+    title: 'Hi I am Hayagreeva',
+    type: 'Short Film',
+    role: 'Co-Produced',
+    description: 'A Ten Out Of Ten co-produced short film.',
+    link: 'https://youtu.be/1oNMeX6CZ0s?si=m7B_YmWgpbfxEygl',
+    image: 'https://i.ytimg.com/vi/1oNMeX6CZ0s/hqdefault.jpg',
+  },
+];
+
 // --- UPCOMING WORK DATA ARRAY ---
 export const UPCOMING_WORKS = [];
 

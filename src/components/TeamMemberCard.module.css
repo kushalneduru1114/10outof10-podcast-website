@@ -8,6 +8,12 @@
     backdrop-filter: blur(14px);
 }
 
+.featuredCard {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 760px);
+}
+
 .imageWrapper {
     position: relative;
     flex-shrink: 0;
@@ -75,6 +81,17 @@
 
 .instagramButton:hover {
     opacity: 0.9;
+}
+
+@media (min-width: 640px) {
+    .featuredCard .imageWrapper {
+        width: 35%;
+    }
+
+    .featuredCard .name {
+        overflow: visible;
+        text-overflow: clip;
+    }
 }
 
 @media (max-width: 520px) {
