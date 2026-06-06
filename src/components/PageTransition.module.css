@@ -39,11 +39,11 @@
 }
 
 .cover .curtain {
-    animation: curtainCover 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: curtainCover 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .release .curtain {
-    animation: curtainRelease 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: curtainRelease 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .blob {
@@ -67,11 +67,11 @@
 }
 
 .cover .wave {
-    animation: edgeCover 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: edgeCover 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .release .wave {
-    animation: edgeRelease 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: edgeRelease 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .blobA {
@@ -109,48 +109,48 @@
 
 .stringTwo {
     top: 56vh;
-    animation-delay: 35ms;
+    animation-delay: 18ms;
 }
 
 .stringThree {
     top: 78vh;
-    animation-delay: 70ms;
+    animation-delay: 35ms;
 }
 
 .cover .blobA,
 .cover .blobB,
 .cover .blobC {
-    animation: blobCover 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: blobCover 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .cover .blobB {
-    animation-delay: 55ms;
+    animation-delay: 28ms;
 }
 
 .cover .blobC {
-    animation-delay: 105ms;
+    animation-delay: 53ms;
 }
 
 .release .blobA,
 .release .blobB,
 .release .blobC {
-    animation: blobRelease 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: blobRelease 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .release .blobB {
-    animation-delay: 40ms;
+    animation-delay: 20ms;
 }
 
 .release .blobC {
-    animation-delay: 85ms;
+    animation-delay: 43ms;
 }
 
 .cover .string {
-    animation: stringCover 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: stringCover 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .release .string {
-    animation: stringRelease 1180ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
+    animation: stringRelease 590ms cubic-bezier(0.72, 0, 0.18, 1) forwards;
 }
 
 .shine {
@@ -159,7 +159,7 @@
     z-index: 10000;
     background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.2), transparent 55%);
     transform: translateX(-120%);
-    animation: shine 2680ms ease-in-out forwards;
+    animation: shine 1340ms ease-in-out forwards;
     mix-blend-mode: screen;
 }
 
