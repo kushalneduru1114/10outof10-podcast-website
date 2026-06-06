@@ -165,8 +165,8 @@
 
 @keyframes curtainCover {
     0% {
-        transform: translateX(-10vw) scaleX(1.03);
-        border-radius: 0 24% 24% 0 / 0 34% 34% 0;
+        transform: translateX(-136vw) scaleX(1.03);
+        border-radius: 0 44% 44% 0 / 0 52% 52% 0;
     }
     82%,
     100% {
@@ -189,7 +189,7 @@
 
 @keyframes edgeCover {
     0% {
-        transform: translateX(-10vw) scale(0.9) rotate(-3deg);
+        transform: translateX(-136vw) scale(0.9) rotate(-3deg);
     }
     82%,
     100% {
@@ -209,7 +209,7 @@
 
 @keyframes blobCover {
     0% {
-        transform: translateX(108vw) scale(0.75);
+        transform: translateX(-136vw) scale(0.75);
         opacity: 0.95;
     }
     82%,
@@ -233,7 +233,7 @@
 
 @keyframes stringCover {
     0% {
-        transform: translateX(94vw) scaleX(0.35);
+        transform: translateX(-136vw) scaleX(0.35);
         opacity: 0.85;
     }
     82%,
