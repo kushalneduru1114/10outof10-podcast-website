@@ -1,27 +1,35 @@
-'use client'; // <-- CRUCIAL: Marks this as a Client Component
+'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
-import styles from './BlogCard.module.css'; // You'll create this next
+import styles from './BlogCard.module.css';
 
 export default function BlogCard({ blog }) {
   const [isHovered, setIsHovered] = useState(false);
-    
-  // The event handlers are now safe inside this Client Component
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
 
   return (
-    <Link 
-        href={`/blog/${blog.slug}`} 
-        className={styles.card}
-        onMouseEnter={handleMouseEnter} // Event handler is safe here
-        onMouseLeave={handleMouseLeave} // Event handler is safe here
+    <Link
+      href={`/blog/${blog.slug}`}
+      className={styles.card}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Blog Card Content */}
+      {blog.image && (
+        <div className={styles.imageFrame}>
+          <Image
+            src={blog.image}
+            alt={`${blog.title} cover image`}
+            fill
+            sizes="(max-width: 768px) 100vw, 360px"
+            className={styles.image}
+          />
+        </div>
+      )}
+
       <div className={styles.details}>
-        <h3 className={styles.title} style={{ color: isHovered ? '#8558DB' : '#4B0082' }}>
+        {blog.subtitle && <p className={styles.subtitle}>{blog.subtitle}</p>}
+        <h3 className={styles.title} style={{ color: isHovered ? '#c7a7ff' : '#ffffff' }}>
           {blog.title}
         </h3>
         <p className={styles.date}>{blog.date}</p>

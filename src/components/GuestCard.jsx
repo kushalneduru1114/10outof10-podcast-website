@@ -1,29 +1,43 @@
-// src/components/GuestCard.jsx (UPDATED: CSS Modules)
 import Image from 'next/image';
-import styles from './GuestCard.module.css'; // Import styles
+import styles from './GuestCard.module.css';
 
 const GuestCard = ({ guest }) => {
-  const { name, bio, img } = guest;
+  const { name, image, works } = guest;
 
   return (
-    <div className={styles.card}>
-      {/* Guest Image Container */}
-      <div className={styles.imageContainer}>
-        <Image 
-          src={img} 
-          alt={name} 
-          fill 
-          style={{ objectFit: 'cover' }} 
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
+    <article className={styles.card}>
+      <div className={styles.guestHeader}>
+        {image && (
+          <div className={styles.avatarFrame}>
+            <Image
+              src={image}
+              alt={`${name} portrait`}
+              fill
+              sizes="56px"
+              className={styles.avatarImage}
+            />
+          </div>
+        )}
+        <h3 className={styles.name}>{name}</h3>
       </div>
 
-      {/* Guest Details */}
-      <div className={styles.details}>
-        <h4 className={styles.name}>{name}</h4>
-        <p className={styles.bio}>{bio}</p>
+      <div className={styles.posterGrid}>
+        {works.map((work) => (
+          <figure key={work.title} className={styles.posterTile}>
+            <div className={styles.posterFrame}>
+              <Image
+                src={work.poster}
+                alt={`${work.title} poster`}
+                fill
+                sizes="(max-width: 768px) 44vw, 180px"
+                className={styles.posterImage}
+              />
+            </div>
+            <figcaption>{work.title}</figcaption>
+          </figure>
+        ))}
       </div>
-    </div>
+    </article>
   );
 };
 

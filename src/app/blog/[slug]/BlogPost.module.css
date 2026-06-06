@@ -1,0 +1,125 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--site-purple-soft);
+    font-weight: 800;
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    margin: 0 0 0.7rem;
+    color: var(--site-purple-soft);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.header h1 {
+    margin: 0;
+    color: var(--site-heading);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    font-weight: 800;
+}
+
+.date {
+    margin: 1rem 0 0;
+    color: var(--site-muted);
+    font-weight: 700;
+}
+
+.description {
+    max-width: 720px;
+    margin: 1rem auto 0;
+    color: var(--site-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.heroImage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin: 2rem auto;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: var(--site-shadow-strong);
+    background: #111827;
+    border: 1px solid var(--site-border);
+}
+
+.image {
+    object-fit: cover;
+}
+
+.contentBox {
+    background: var(--site-panel);
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border-radius: 0.75rem;
+    box-shadow: var(--site-shadow);
+    color: var(--site-muted-strong);
+    border: 1px solid var(--site-border);
+    backdrop-filter: blur(14px);
+}
+
+.contentBox h2 {
+    margin: 2.25rem 0 1rem;
+    color: var(--site-heading);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.15;
+}
+
+.contentBox h2:first-child {
+    margin-top: 0;
+}
+
+.contentBox p {
+    margin: 0 0 1.35rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.contentBox p:last-child {
+    margin-bottom: 0;
+}
+
+.gallery {
+    margin-top: 3rem;
+}
+
+.gallery h2 {
+    margin: 0 0 1rem;
+    color: var(--site-heading);
+    font-size: 1.7rem;
+}
+
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.8rem;
+}
+
+.galleryFrame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 0.45rem;
+    background: #111827;
+    border: 1px solid var(--site-border);
+    box-shadow: var(--site-shadow);
+}

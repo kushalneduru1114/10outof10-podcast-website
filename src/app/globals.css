@@ -1,38 +1,101 @@
-/* src/app/globals.css (COMPLETE CODE) */
-
-/* CHANGE: Import the new font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
-/* Apply smooth scroll to the root HTML element for reliable anchor scrolling */
+:root {
+    --site-bg: #14041f;
+    --site-bg-deep: #07101f;
+    --site-purple: #8558db;
+    --site-purple-soft: #c7a7ff;
+    --site-heading: #ffffff;
+    --site-text: #ffffff;
+    --site-muted: rgba(255, 255, 255, 0.72);
+    --site-muted-strong: rgba(255, 255, 255, 0.86);
+    --site-border: rgba(255, 255, 255, 0.14);
+    --site-glass: rgba(255, 255, 255, 0.075);
+    --site-glass-strong: rgba(16, 7, 28, 0.78);
+    --site-panel: rgba(255, 255, 255, 0.075);
+    --site-panel-strong: rgba(255, 255, 255, 0.1);
+    --site-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    --site-shadow-strong: 0 24px 54px rgba(0, 0, 0, 0.34);
+    --site-header-bg: rgba(10, 3, 15, 0.74);
+    --site-footer-bg: rgba(10, 3, 15, 0.78);
+    --site-section-bg: rgba(255, 255, 255, 0.055);
+    --site-card-grad: linear-gradient(135deg, rgba(133, 88, 219, 0.14), transparent 46%);
+    --site-button-text: #ffffff;
+    --hero-text: #ffffff;
+    --hero-muted: #f5eef7;
+    --site-backdrop:
+        radial-gradient(circle at 18% 18%, rgba(133, 88, 219, 0.48), transparent 28rem),
+        radial-gradient(circle at 86% 32%, rgba(77, 18, 126, 0.42), transparent 30rem),
+        linear-gradient(135deg, #14041f 0%, #321245 44%, #07101f 100%);
+    --site-svg-stroke: rgba(255, 255, 255, 0.2);
+    --site-svg-stroke-strong: rgba(255, 255, 255, 0.32);
+    --parallax-y: 0px;
+}
+
+:root[data-theme='light'] {
+    --site-bg: #f6efff;
+    --site-bg-deep: #fffafd;
+    --site-heading: #1a0828;
+    --site-text: #241232;
+    --site-muted: rgba(36, 18, 50, 0.72);
+    --site-muted-strong: rgba(36, 18, 50, 0.86);
+    --site-border: rgba(82, 38, 132, 0.18);
+    --site-glass: rgba(255, 255, 255, 0.7);
+    --site-glass-strong: rgba(255, 255, 255, 0.86);
+    --site-panel: rgba(255, 255, 255, 0.76);
+    --site-panel-strong: rgba(255, 255, 255, 0.9);
+    --site-shadow: 0 18px 42px rgba(73, 30, 116, 0.16);
+    --site-shadow-strong: 0 24px 54px rgba(73, 30, 116, 0.22);
+    --site-header-bg: rgba(249, 244, 255, 0.82);
+    --site-footer-bg: rgba(249, 244, 255, 0.86);
+    --site-section-bg: rgba(255, 255, 255, 0.55);
+    --site-card-grad: linear-gradient(135deg, rgba(133, 88, 219, 0.16), transparent 48%);
+    --hero-text: #ffffff;
+    --hero-muted: #fbf7ff;
+    --site-backdrop:
+        radial-gradient(circle at 18% 18%, rgba(199, 167, 255, 0.58), transparent 28rem),
+        radial-gradient(circle at 86% 32%, rgba(133, 88, 219, 0.26), transparent 30rem),
+        linear-gradient(135deg, #f6efff 0%, #eadcff 48%, #fffafd 100%);
+    --site-svg-stroke: rgba(88, 35, 142, 0.18);
+    --site-svg-stroke-strong: rgba(88, 35, 142, 0.28);
+}
+
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
+    background: var(--site-bg);
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    
-    /* Set your background and primary text colors */
-    background-color: #F6F8FB; 
-    color: #4B0082; 
-    
+    background: var(--site-bg);
+    color: var(--site-text);
     min-height: 100vh;
 }
 
-/* Basic utility to clear defaults */
 * {
     box-sizing: border-box;
 }
 
-/* Base flex container for full height layout */
+a,
+button {
+    font-family: inherit;
+}
+
 .full-page-container {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Global class to prevent background scrolling when the mobile menu is open */
 .no-scroll {
     overflow: hidden !important;
+}
+
+::selection {
+    color: var(--site-button-text);
+    background: rgba(133, 88, 219, 0.82);
 }

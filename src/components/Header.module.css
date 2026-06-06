@@ -1,12 +1,12 @@
-/* src/components/Header.module.css (COMPLETE CODE) */
-
 .header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); 
-    border-bottom: 1px solid #ddd; 
+    background: var(--site-header-bg);
+    box-shadow: var(--site-shadow);
+    border-bottom: 1px solid var(--site-border);
+    backdrop-filter: blur(18px);
+    transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .container {
@@ -23,105 +23,24 @@
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    /* Pushes logo left, resolving centering issues */
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 .logoText {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #4B0082;
+    font-size: clamp(0.95rem, 4vw, 1.25rem);
+    font-weight: 800;
+    color: var(--site-heading);
+    white-space: nowrap;
 }
 
-/* Desktop Navigation links container */
 .nav {
-    display: none; /* Hidden by default (mobile first) */
+    display: none;
     gap: 2rem;
 }
 
-/* MOBILE MENU BUTTON STYLES */
-.menuButton {
-    /* Always visible on mobile, hidden on desktop */
-    display: block; 
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #4B0082; /* Primary text color */
-    z-index: 60; /* Above the overlay */
-}
-
-/* MOBILE SLIDE-OUT MENU STYLES */
-.mobileMenuOverlay {
-    /* Start position: Off-screen to the right */
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%; /* Full width overlay */
-    height: 100vh;
-    background-color: rgba(246, 248, 251, 0.95); /* Semi-transparent light background */
-    z-index: 55; /* Above header but below menu button */
-    
-    /* Animation setup: Slide off-screen */
-    transform: translateX(100%);
-    transition: transform 0.4s ease-out;
-    
-    /* Content alignment (links will slide in from the right) */
-    display: flex;
-    justify-content: flex-end; /* Keep content to the right */
-}
-
-.mobileMenuOverlay.open {
-    /* End position: On-screen */
-    transform: translateX(0);
-}
-
-.mobileMenuContent {
-    /* The actual panel containing the links (e.g., 75% width of the screen) */
-    width: 75%; 
-    max-width: 300px; /* Max size for a large tablet */
-    background-color: white; 
-    padding: 6rem 2rem 2rem; /* Padding for content below the header */
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.mobileNavLink {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #4B0082;
-    text-decoration: none;
-    border-bottom: 2px solid #8558DB; /* Accent line for each link */
-    padding-bottom: 0.5rem;
-    transition: color 0.2s;
-}
-
-.mobileNavLink:hover {
-    color: #8558DB;
-}
-
-
-/* Desktop Styles: Hide menu button and show desktop nav */
-@media (min-width: 768px) {
-    .nav {
-        display: flex; /* Shows desktop navigation */
-        gap: 2rem;
-        margin-left: auto;
-    }
-    .menuButton {
-        display: none; /* Hides hamburger icon */
-    }
-    .mobileMenuOverlay {
-        display: none; /* Hides mobile menu completely */
-    }
-}
-
-
-/* Existing navLink styles (used for desktop links) */
 .navLink {
-    color: #4B0082;
-    font-weight: 600;
+    color: var(--site-muted-strong);
+    font-weight: 700;
     text-decoration: none;
     transition: color 150ms;
     position: relative;
@@ -129,10 +48,9 @@
 }
 
 .navLink:hover {
-    color: #8558DB; /* accent-purple */
+    color: var(--site-purple-soft);
 }
 
-/* Underline hover effect */
 .navLink::after {
     content: '';
     position: absolute;
@@ -140,11 +58,100 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #8558DB;
+    background-color: var(--site-purple-soft);
     transform: scaleX(0);
     transition: transform 300ms ease-in-out;
 }
 
 .navLink:hover::after {
     transform: scaleX(1);
+}
+
+.themeButton,
+.menuButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--site-panel);
+    border: 1px solid var(--site-border);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    color: var(--site-heading);
+    z-index: 60;
+    transition: transform 160ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.themeButton {
+    margin-left: 1rem;
+}
+
+.themeButton:hover,
+.menuButton:hover {
+    transform: translateY(-1px);
+    border-color: rgba(199, 167, 255, 0.58);
+}
+
+.mobileMenuOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(7, 4, 12, 0.72);
+    z-index: 55;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-out;
+    display: flex;
+    justify-content: flex-end;
+    backdrop-filter: blur(14px);
+}
+
+.mobileMenuOverlay.open {
+    transform: translateX(0);
+}
+
+.mobileMenuContent {
+    width: min(75%, 300px);
+    background: var(--site-glass-strong);
+    padding: 6rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: var(--site-shadow-strong);
+    border-left: 1px solid var(--site-border);
+}
+
+.mobileNavLink {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--site-heading);
+    text-decoration: none;
+    border-bottom: 2px solid var(--site-purple);
+    padding-bottom: 0.5rem;
+    transition: color 0.2s;
+}
+
+.mobileNavLink:hover {
+    color: var(--site-purple-soft);
+}
+
+@media (min-width: 768px) {
+    .nav {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .menuButton,
+    .mobileMenuOverlay {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .themeButton {
+        margin-left: auto;
+        margin-right: 0.65rem;
+    }
 }

@@ -1,59 +1,94 @@
-/* src/components/BlogCard.module.css */
 .card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-    background-color: white;
+    display: grid;
+    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--site-panel);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--site-shadow);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     text-decoration: none;
-    border: 1px solid transparent;
+    border: 1px solid var(--site-border);
+    backdrop-filter: blur(14px);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(133, 88, 219, 0.2); /* Soft purple shadow on hover */
-    border-color: #8558DB;
+    box-shadow: var(--site-shadow-strong);
+    border-color: rgba(199, 167, 255, 0.7);
+}
+
+.imageFrame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 0.45rem;
+    background: #111827;
+}
+
+.image {
+    object-fit: cover;
 }
 
 .details {
-    flex-grow: 1;
+    min-width: 0;
+}
+
+.subtitle {
+    margin: 0 0 0.4rem;
+    color: var(--site-purple-soft);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
+    color: var(--site-heading);
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    line-height: 1.15;
     transition: color 0.3s;
 }
 
 .date {
     font-size: 0.875rem;
-    color: #4a5568;
+    color: var(--site-muted);
     margin-bottom: 0.75rem;
 }
 
 .description {
     font-size: 1rem;
-    color: #4a5568;
+    color: var(--site-muted);
     line-height: 1.5;
 }
 
 .readMoreButton {
-    align-self: flex-start;
-    background-color: #4B0082; /* Primary Text/Dark Purple */
-    color: white;
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
+    align-self: center;
+    justify-self: end;
+    background-color: var(--site-purple);
+    color: var(--site-button-text);
+    padding: 0.7rem 1rem;
+    border-radius: 0.45rem;
+    font-weight: 700;
     font-size: 0.9rem;
     transition: background-color 0.3s;
-    cursor: pointer;
+    white-space: nowrap;
 }
 
 .readMoreButton:hover {
-    background-color: #8558DB; /* Accent Purple on hover */
+    background-color: #9970E5;
+}
+
+@media (max-width: 760px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+
+    .readMoreButton {
+        justify-self: start;
+    }
 }

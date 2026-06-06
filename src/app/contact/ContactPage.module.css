@@ -1,33 +1,33 @@
-/* src/app/contact/ContactPage.module.css (NEW FILE) */
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 4rem 1rem;
-    min-height: 70vh; /* Ensure it takes up most of the screen height */
+    min-height: 70vh;
 }
 
 .card {
-    background-color: white;
+    background: var(--site-panel);
     padding: 3rem;
     border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--site-shadow);
     max-width: 500px;
     text-align: center;
-    border-top: 5px solid #8558DB; /* Accent purple line */
+    border: 1px solid var(--site-border);
+    border-top: 5px solid var(--site-purple);
+    backdrop-filter: blur(14px);
 }
 
 .title {
     font-size: 2rem;
     font-weight: 800;
-    color: #4B0082; /* Dark Purple */
+    color: var(--site-heading);
     margin-bottom: 1.5rem;
 }
 
 .message {
     font-size: 1.125rem;
-    color: #4a5568;
+    color: var(--site-muted);
     margin-bottom: 1rem;
 }
 
@@ -35,8 +35,8 @@
     display: inline-block;
     font-size: 1.25rem;
     font-weight: 700;
-    color: white;
-    background-color: #8558DB; /* Accent Purple */
+    color: var(--site-button-text);
+    background-color: var(--site-purple);
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     text-decoration: none;
@@ -45,10 +45,10 @@
 }
 
 .emailLink:hover {
-    background-color: #4B0082; /* Darker purple on hover */
+    background-color: #9970E5;
 }
 
 .closing {
     font-size: 1rem;
-    color: #4a5568;
+    color: var(--site-muted);
 }

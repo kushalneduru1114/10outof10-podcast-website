@@ -1,24 +1,37 @@
-// src/app/layout.js (MODIFIED to include Vercel Analytics)
-
-// Import the Vercel Analytics component
 import { Analytics } from '@vercel/analytics/react';
-
-// Import the global CSS file
-import './globals.css';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import IntroAnimation from '../components/IntroAnimation';
+import SiteBackdrop from '../components/SiteBackdrop';
+import './globals.css';
 
-// Metadata for the page (SEO and browser tabs)
 export const metadata = {
-  title: 'Ten Out Of Ten Podcast',
-  description: 'Your movie podcast channel from Spotify.',
+  title: 'Ten Out Of Ten',
+  description: 'Ten Out Of Ten is a cinema podcast and independent film platform for conversations, short films, and independent cinema.',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      {/* Font is applied via the global CSS file */}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var theme = window.localStorage.getItem('tot-theme') || 'dark';
+                  document.documentElement.dataset.theme = theme;
+                } catch (error) {
+                  document.documentElement.dataset.theme = 'dark';
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body>
+        <SiteBackdrop />
+        <IntroAnimation />
         <div className="full-page-container">
           <Header />
           <main style={{ flexGrow: 1 }}>
@@ -26,8 +39,6 @@ export default function RootLayout({ children }) {
           </main>
           <Footer />
         </div>
-        
-        {/* CRITICAL: Add the Vercel Analytics component here */}
         <Analytics />
       </body>
     </html>

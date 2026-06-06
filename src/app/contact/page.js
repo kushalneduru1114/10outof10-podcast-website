@@ -1,5 +1,9 @@
-// src/app/contact/page.js (NEW PAGE CONTENT)
 import styles from './ContactPage.module.css';
+
+export const metadata = {
+    title: 'Contact | Ten Out Of Ten',
+    description: 'Contact Ten Out Of Ten for film submissions, collaborations, partnerships, and independent film presentation opportunities.',
+};
 
 export default function ContactPage() {
     const emailAddress = 'tenoutoftenfilms@gmail.com';
@@ -11,16 +15,15 @@ export default function ContactPage() {
             <div className={styles.card}>
                 <h1 className={styles.title}>Work With Us</h1>
                 <p className={styles.message}>
-                    Whether it’s film submissions, collaborations, or partnerships — we’d love to hear from you at
+                    Whether it is film submissions, collaborations, or partnerships, we would love to hear from you at
                 </p>
                 
-                {/* Email link: Uses the mailto protocol to open the user's email client */}
                 <a href={mailtoLink} className={styles.emailLink}>
                     {emailAddress}
                 </a>
                 
                 <p className={styles.closing}>
-                    We look forward to hearing from you!
+                    We look forward to hearing from you.
                 </p>
             </div>
         </div>

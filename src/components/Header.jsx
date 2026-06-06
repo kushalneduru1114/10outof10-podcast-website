@@ -1,84 +1,108 @@
-// src/components/Header.jsx (MODIFIED: Contact link changed to /contact)
-'use client'; 
+'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa'; 
-import styles from './Header.module.css'; 
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { FaBars, FaMoon, FaSun, FaTimes } from 'react-icons/fa';
+import styles from './Header.module.css';
 
 const NAV_LINKS = [
   { name: 'HOME', href: '/' },
   { name: 'OUR WORK', href: '/work' },
   { name: 'BLOG', href: '/blog' },
-  // MODIFIED: Changed href from '#contact' to the new page route '/contact' 
   { name: 'OUR TEAM', href: '/team' },
   { name: 'CONTACT US', href: '/contact' },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState('dark');
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+  const toggleMenu = () => setIsMenuOpen((current) => !current);
+  const toggleTheme = () => {
+    setTheme((current) => {
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = nextTheme;
+      window.localStorage.setItem('tot-theme', nextTheme);
+      return nextTheme;
+    });
   };
-  
-  // Effect to manage body scroll lock when menu is open
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('tot-theme');
+    const initialTheme = savedTheme || document.documentElement.dataset.theme || 'dark';
+
+    document.documentElement.dataset.theme = initialTheme;
+    setTheme(initialTheme);
+  }, []);
+
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add('no-scroll');
     } else {
       document.body.classList.remove('no-scroll');
     }
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
   }, [isMenuOpen]);
 
-
   return (
-    <header className={styles.header}> 
+    <header className={styles.header}>
       <div className={styles.container}>
-        
-        {/* Logo and Podcast Name (10outof10) */}
-        <Link href="/" className={styles.logoContainer} onClick={() => setIsMenuOpen(false)}> 
-          <div style={{ position: 'relative', width: '2rem', height: '2rem' }}> 
-             <Image src="/assets/logo.svg" alt="10 OUT 10 Logo" fill /> 
+        <Link href="/" className={styles.logoContainer} onClick={closeMenu}>
+          <div style={{ position: 'relative', width: '2rem', height: '2rem' }}>
+            <Image src="/assets/logo.svg" alt="10 OUT 10 Logo" fill />
           </div>
           <span className={styles.logoText}>TEN OUT OF TEN</span>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Primary navigation">
           {NAV_LINKS.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              className={styles.navLink}
-            >
+            <Link key={link.name} href={link.href} className={styles.navLink}>
               {link.name}
             </Link>
           ))}
         </nav>
-        
-        {/* Mobile Menu Icon (Hamburger) */}
-        <button className={styles.menuButton} onClick={toggleMenu} aria-label="Toggle navigation menu">
+
+        <button
+          type="button"
+          className={styles.themeButton}
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === 'dark' ? <FaSun aria-hidden="true" /> : <FaMoon aria-hidden="true" />}
+        </button>
+
+        <button
+          className={styles.menuButton}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+        >
           {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
       </div>
-      
-      {/* Mobile Slide-out Menu */}
-      <nav className={`${styles.mobileMenuOverlay} ${isMenuOpen ? styles.open : ''}`}>
-        <div className={styles.mobileMenuContent}>
+
+      {isMenuOpen && (
+        <nav
+          id="mobile-navigation"
+          className={`${styles.mobileMenuOverlay} ${styles.open}`}
+          aria-label="Mobile navigation"
+        >
+          <div className={styles.mobileMenuContent}>
             {NAV_LINKS.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className={styles.mobileNavLink}
-                onClick={toggleMenu} // Closes menu when a link is clicked
-              >
+              <Link key={link.name} href={link.href} className={styles.mobileNavLink} onClick={closeMenu}>
                 {link.name}
               </Link>
             ))}
-        </div>
-      </nav>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

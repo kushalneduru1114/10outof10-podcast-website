@@ -1,39 +1,84 @@
-// src/components/HeroSection.jsx (UPDATED: CSS Modules)
+import Image from 'next/image';
 import Link from 'next/link';
-import { FaSpotify } from 'react-icons/fa';
-import styles from './HeroSection.module.css'; // Import styles
+import { FaArrowRight, FaFilm, FaSpotify } from 'react-icons/fa';
+import { SPOTIFY_SHOW_URL } from './data';
+import HeroSpotifyWidget from './HeroSpotifyWidget';
+import styles from './HeroSection.module.css';
 
-// Placeholder link
-const SPOTIFY_LINK = "https://open.spotify.com/show/1K9g6ClNj9TIK1CuAs5aOc?si=jppXn7UFQkemWFuGvJu6Dg"; 
+const HERO_IMAGES = [
+  { src: '/assets/FridayPic.jpg', alt: 'Friday independent film poster' },
+  { src: '/assets/TarunamPic.jpg', alt: 'Tarunam short film poster' },
+  { src: '/assets/LCApic.jpg', alt: 'Lights, Camera & Action short film still' },
+  { src: '/assets/mahanati.jpg', alt: 'Mahanati episode artwork' },
+];
+
+const HERO_STATS = [
+  { value: '45', label: 'Episodes' },
+  { value: '3', label: 'Seasons' },
+  { value: 'Shorts', label: 'Presented & Distributed' },
+];
 
 const HeroSection = () => {
   return (
     <section className={styles.heroSection}>
-      {/* The diagonal background element */}
-      <div className={styles.diagonalBackground}></div>
+      <div className={styles.imageCollage} aria-hidden="true">
+        {HERO_IMAGES.map((image, index) => (
+          <div key={image.src} className={`${styles.imageFrame} ${styles[`frame${index + 1}`]}`}>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              priority={index === 0}
+              sizes="(max-width: 768px) 42vw, 24vw"
+              className={styles.heroImage}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.scrim} />
 
       <div className={styles.container}>
-        <div className={styles.content}>
-          
-          <h1 className={styles.tagline}>
-            TEN OUT OF TEN
-          </h1>
-          
-          <p className={styles.subTagline}>
-            Breaking down cinema,one ten at a time.
+        <div className={styles.copyBlock}>
+          <p className={styles.eyebrow}>
+            <FaFilm aria-hidden="true" />
+            Cinema Podcast / Independent Films
           </p>
-          
-          <Link 
-            href={SPOTIFY_LINK} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={styles.spotifyButton}
-          >
-            <FaSpotify />
-            LISTEN ON SPOTIFY
-          </Link>
-          
+
+          <h1 className={styles.title}>TEN OUT OF TEN</h1>
+
+          <p className={styles.subTagline}>
+            A cinema podcast and independent film platform spotlighting conversations, shorts, and independent films.
+          </p>
+
+          <div className={styles.actions}>
+            <Link
+              href={SPOTIFY_SHOW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.primaryButton}
+            >
+              <FaSpotify aria-hidden="true" />
+              Listen on Spotify
+            </Link>
+
+            <Link href="/work" className={styles.secondaryButton}>
+              Watch Our Work
+              <FaArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+
+          <dl className={styles.stats}>
+            {HERO_STATS.map((stat) => (
+              <div key={stat.label} className={styles.stat}>
+                <dt>{stat.value}</dt>
+                <dd>{stat.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
+
+        <HeroSpotifyWidget />
       </div>
     </section>
   );

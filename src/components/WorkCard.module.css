@@ -1,132 +1,92 @@
-/* src/components/WorkCard.module.css (MODIFIED: Aspect Ratio Image Fix) */
 .card {
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100%;
+    overflow: hidden;
+    border-radius: 0.85rem;
+    border: 1px solid var(--site-border);
+    background: var(--site-panel);
+    box-shadow: var(--site-shadow);
+    backdrop-filter: blur(14px);
+    text-decoration: none;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--site-card-grad);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cardLink {
+    cursor: pointer;
+}
+
+.cardLink:hover {
+    transform: translateY(-5px);
+    border-color: rgba(199, 167, 255, 0.7);
+    box-shadow: var(--site-shadow-strong);
+}
+
+.imageContainer {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #111827;
+}
+
+.workImage {
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 260ms ease;
+}
+
+.cardLink:hover .workImage {
+    transform: scale(1.05);
+}
+
+.textContent {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid #DCDCF6;
-    position: relative; 
-    overflow: hidden; 
-}
-
-/* Wrapper for the title/info and the image */
-.headerContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-    gap: 1rem;
-}
-
-/* Wrapper for the text elements in the header */
-.textHeader {
-    flex-grow: 1;
-    min-width: 0; 
+    gap: 0.65rem;
+    padding: 1.25rem;
 }
 
 .title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #4B0082;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
+    color: var(--site-heading);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1.14;
+    margin: 0;
 }
 
 .subInfo {
-    font-size: 0.875rem;
-    color: #4a5568;
-    margin-bottom: 0.25rem;
+    color: var(--site-muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-transform: uppercase;
 }
 
 .role {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #8558DB;
-    margin-bottom: 0;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
+    color: var(--site-purple-soft);
+    font-size: 0.94rem;
+    font-weight: 800;
+    margin: 0;
 }
 
 .description {
-    font-size: 1rem;
-    color: #4a5568;
-    line-height: 1.5;
-    flex-grow: 1; 
-    margin-bottom: 1.5rem;
-}
-
-/*.learnMoreButton {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    background: none;
-    border: 1px solid #8558DB;
-    color: #8558DB;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.2s, color 0.2s;
-    cursor: pointer;
-}*/
-
-.learnMoreButton {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    background: #8558DB;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #8558DB; 
-    color: white;              
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.2s, color 0.2s;
-    cursor: pointer;
-}
-
-/*.learnMoreButton:hover {
-    background-color: #8558DB;
-    color: white;
-}*/
-
-.learnMoreButton:hover {
-  background-color: #9970E5; 
-  color: white;
-  transform: scale(1.03);
-}
-
-.learnMoreButton svg {
-    margin-left: 0.5rem;
-}
-
-/* MODIFIED: Aspect Ratio Fix for Image Container */
-.imageContainer {
-    position: relative;
-    flex-shrink: 0;
-    
-    /* Keep width fixed */
-    width: 8rem; 
-    
-    /* REMOVED: fixed height: 5.5rem; */
-
-    /* ADDED: Aspect ratio (Width:Height) - 4:3 is a standard rectangle */
-    aspect-ratio: 4 / 3; 
-    
-    border-radius: 0.5rem;
-    overflow: hidden;
-    border: 2px solid #8558DB;
-    z-index: 1; 
-    margin-top: 0.1rem;
-}
-
-/* Image component takes full space of its container */
-.workImage {
-    /* Ensure the image covers the aspect-ratio container */
-    object-fit: cover; 
-    width: 100%;
-    height: 100%;
+    color: var(--site-muted);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 0;
 }

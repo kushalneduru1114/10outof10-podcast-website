@@ -1,41 +1,28 @@
-/* src/app/work/WorkPage.module.css */
-
-.container { 
-    max-width: 1280px; 
-    margin: 0 auto; 
-    padding: 3rem 1rem; 
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
     min-height: 80vh;
 }
 
 .sectionTitle {
     font-size: 2.25rem;
     font-weight: 800;
-    color: #4B0082;
-    margin-bottom: 2rem; 
+    color: var(--site-heading);
+    margin-bottom: 2rem;
     text-align: center;
 }
 
-/* THE CORE FIX: Responsive Grid Layout */
 .workGrid {
     display: grid;
-    grid-template-columns: 1fr; /* Mobile: 1 column */
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     margin-bottom: 4rem;
 }
 
-/* Desktop Styles: Max 2 Cards Per Row */
 @media (min-width: 768px) {
     .workGrid {
-        grid-template-columns: repeat(2, 1fr); /* Desktop: 2 equal columns */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
     }
-}
-
-.placeholderText {
-    font-size: 1.5rem;
-    color: #8558DB;
-    text-align: center;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }

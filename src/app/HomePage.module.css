@@ -1,0 +1,102 @@
+.page {
+    min-height: 100vh;
+}
+
+.aboutBand {
+    background: var(--site-section-bg);
+    border-block: 1px solid var(--site-border);
+    backdrop-filter: blur(14px);
+}
+
+.aboutInner {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: clamp(2.75rem, 5vw, 4rem) 0;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 7vw, 5.25rem);
+    align-items: center;
+}
+
+.aboutInner h2,
+.sectionHeader h2 {
+    margin: 0;
+    color: var(--site-heading);
+    line-height: 1.1;
+    letter-spacing: 0;
+}
+
+.aboutInner h2 {
+    max-width: 620px;
+    font-size: clamp(2rem, 4.4vw, 3.6rem);
+}
+
+.aboutCopy p:last-child,
+.sectionHeader p {
+    margin: 0;
+    color: var(--site-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.aboutCopy p:last-child {
+    max-width: 520px;
+}
+
+.kicker {
+    margin: 0 0 0.75rem;
+    color: var(--site-purple-soft);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.section {
+    width: min(1280px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.sectionHeader h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.section {
+    padding: clamp(3.25rem, 6vw, 5rem) 0;
+}
+
+.sectionHeader {
+    margin-bottom: 1.8rem;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.4rem;
+    align-items: stretch;
+}
+
+.guestList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 820px) {
+    .aboutInner {
+        grid-template-columns: 1fr;
+        gap: 1.35rem;
+    }
+}
+
+@media (max-width: 1180px) {
+    .cardGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .cardGrid {
+        grid-template-columns: 1fr;
+    }
+}

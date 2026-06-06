@@ -1,37 +1,36 @@
-// src/components/TeamMemberCard.jsx
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaInstagram } from 'react-icons/fa'; // Import Instagram icon
+import { FaInstagram } from 'react-icons/fa';
 import styles from './TeamMemberCard.module.css';
 
 const TeamMemberCard = ({ member }) => {
   const { firstName, lastName, position, tenure, image, instagram } = member;
+  const fullName = [firstName, lastName].filter(Boolean).join(' ');
 
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
-        <Image 
+        <Image
           src={image}
-          alt={`${firstName} ${lastName}`}
+          alt={fullName}
           fill
           style={{ objectFit: 'cover' }}
-          sizes="(max-width: 768px) 50vw, 33vw" // Responsive sizes for performance
+          sizes="(max-width: 768px) 50vw, 33vw"
           className={styles.memberImage}
         />
       </div>
       <div className={styles.infoWrapper}>
         <h4 className={styles.position}>{position}</h4>
-        <h3 className={styles.name}>{firstName}</h3>
-        <h3 className={styles.name}>{lastName}</h3>
+        <h3 className={styles.name}>{fullName}</h3>
         <p className={styles.tenure}>{tenure}</p>
-        
-        {instagram && ( // Conditionally render Instagram button
-          <Link 
-            href={instagram} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+
+        {instagram && (
+          <Link
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.instagramButton}
-            aria-label={`Visit ${firstName}'s Instagram profile`}
+            aria-label={`Visit ${fullName}'s Instagram profile`}
           >
             <FaInstagram size={20} />
           </Link>

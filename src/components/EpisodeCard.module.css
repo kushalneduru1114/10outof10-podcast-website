@@ -1,100 +1,108 @@
-/* src/components/EpisodeCard.module.css (MODIFIED) */
 .card {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
     padding: 1rem;
-    background-color: white;
+    background: var(--site-panel);
     border-radius: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #8558DB;
-    transition: box-shadow 300ms;
+    box-shadow: var(--site-shadow);
+    border: 1px solid var(--site-border);
+    border-top: 4px solid var(--site-purple);
+    transition: box-shadow 300ms, transform 200ms, border-color 200ms;
+    backdrop-filter: blur(14px);
 }
 
 .card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    border-color: rgba(199, 167, 255, 0.62);
+    box-shadow: var(--site-shadow-strong);
 }
 
 .contentWrapper {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 5.75rem minmax(0, 1fr);
     gap: 1rem;
+    align-items: start;
 }
 
-@media (min-width: 768px) {
-    .contentWrapper {
-        flex-direction: row;
-        align-items: flex-start; /* Align thumbnail and text block */
-    }
-}
-
-/* NEW STYLES FOR THUMBNAIL */
 .thumbnailContainer {
     position: relative;
-    flex-shrink: 0; /* Prevents image from shrinking */
-    width: 6rem;    /* Fixed width */
-    height: 6rem;   /* Fixed height */
+    width: 5.75rem;
+    height: 5.75rem;
     overflow: hidden;
-    border-radius: 0.5rem; /* Slightly rounded corners */
-    
-    /* YOUR REQUESTED STYLES: PURPLE BORDER & BOX-SHADOW */
-    border: 3px solid #8558DB; /* Accent Purple Border */
-    box-shadow: 0 4px 12px -2px rgba(133, 88, 219, 0.4); /* Purple Box Shadow */
+    border-radius: 0.55rem;
+    border: 3px solid var(--site-purple);
+    box-shadow: 0 4px 18px -2px rgba(133, 88, 219, 0.7);
+    background: #111827;
 }
 
 .textDetails {
-    flex-grow: 1; /* Allows text to take up remaining space */
-}
-/* END OF NEW STYLES */
-
-.header {
+    min-width: 0;
     display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: #8558DB;
-    border-radius: 9999px;
-    margin-right: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 0.75rem;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
 .title {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #4B0082;
+    min-height: 4.2rem;
+    margin: 0;
+    color: var(--site-heading);
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.2;
 }
 
 .description {
-    font-size: 0.875rem;
-    color: #4a5568;
-    margin-bottom: 1rem;
+    margin: 0;
+    color: var(--site-muted);
+    font-size: 0.9rem;
+    line-height: 1.48;
 }
 
 .spotifyButton {
-    /* ... (rest of button styles remain the same) */
+    width: fit-content;
+    margin-top: auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #8558DB;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    font-weight: 600;
-    font-size: 0.875rem;
+    gap: 0.5rem;
+    background-color: var(--site-purple);
+    color: var(--site-button-text);
+    padding: 0.58rem 0.9rem;
+    border-radius: 0.45rem;
+    font-weight: 800;
+    font-size: 0.82rem;
     text-decoration: none;
-    transition: opacity 150ms;
+    transition: opacity 150ms, transform 150ms, background-color 150ms;
 }
 
 .spotifyButton:hover {
-    opacity: 0.9;
+    background-color: #9970e5;
+    transform: translateY(-1px);
 }
 
-.spotifyButton svg {
-    margin-right: 0.5rem;
+.spotifyButtonIcon {
+    flex: 0 0 auto;
+}
+
+@media (min-width: 1180px) {
+    .contentWrapper {
+        grid-template-columns: 5.5rem minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .contentWrapper {
+        grid-template-columns: 5.25rem minmax(0, 1fr);
+    }
+
+    .thumbnailContainer {
+        width: 5.25rem;
+        height: 5.25rem;
+    }
+
+    .title {
+        min-height: auto;
+    }
 }
