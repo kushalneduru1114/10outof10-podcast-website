@@ -5,10 +5,10 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './PageTransition.module.css';
 
 export const PAGE_TRANSITION_EVENT = 'tot-page-transition-start';
-export const PAGE_TRANSITION_COVER_MS = 550;
+export const PAGE_TRANSITION_COVER_MS = 260;
 
-const RELEASE_START_MS = 590;
-const TRANSITION_DURATION_MS = 1240;
+const RELEASE_START_MS = 300;
+const TRANSITION_DURATION_MS = 680;
 const TRANSITION_RELEASE_AT_KEY = 'tot-page-transition-release-at';
 const TRANSITION_ACTIVE_UNTIL_KEY = 'tot-page-transition-active-until';
 
@@ -126,40 +126,11 @@ const PageTransition = () => {
       <span className={styles.sentinel} aria-hidden="true" />
 
       {transitionState.visible && (
-        <>
-          <svg className={styles.filterSvg} aria-hidden="true" focusable="false">
-            <defs>
-              <filter id="tot-goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
-                <feColorMatrix
-                  in="blur"
-                  mode="matrix"
-                  values="1 0 0 0 0
-                          0 1 0 0 0
-                          0 0 1 0 0
-                          0 0 0 28 -9"
-                  result="goo"
-                />
-                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-              </filter>
-            </defs>
-          </svg>
-          <div
-            key={transitionState.cycle}
-            className={`${styles.overlay} ${transitionState.phase === 'release' ? styles.release : styles.cover}`}
-            aria-hidden="true"
-          >
-            <div className={styles.curtain} />
-            <div className={`${styles.blob} ${styles.wave}`} />
-            <div className={`${styles.blob} ${styles.blobA}`} />
-            <div className={`${styles.blob} ${styles.blobB}`} />
-            <div className={`${styles.blob} ${styles.blobC}`} />
-            <div className={`${styles.blob} ${styles.string} ${styles.stringOne}`} />
-            <div className={`${styles.blob} ${styles.string} ${styles.stringTwo}`} />
-            <div className={`${styles.blob} ${styles.string} ${styles.stringThree}`} />
-            <div className={styles.shine} />
-          </div>
-        </>
+        <div
+          key={transitionState.cycle}
+          className={`${styles.overlay} ${transitionState.phase === 'release' ? styles.release : styles.cover}`}
+          aria-hidden="true"
+        />
       )}
     </>
   );
