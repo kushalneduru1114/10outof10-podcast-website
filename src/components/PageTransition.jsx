@@ -7,8 +7,8 @@ import styles from './PageTransition.module.css';
 export const PAGE_TRANSITION_EVENT = 'tot-page-transition-start';
 export const PAGE_TRANSITION_COVER_MS = 550;
 
-const RELEASE_START_MS = 640;
-const TRANSITION_DURATION_MS = 1340;
+const RELEASE_START_MS = 590;
+const TRANSITION_DURATION_MS = 1240;
 const TRANSITION_RELEASE_AT_KEY = 'tot-page-transition-release-at';
 const TRANSITION_ACTIVE_UNTIL_KEY = 'tot-page-transition-active-until';
 
