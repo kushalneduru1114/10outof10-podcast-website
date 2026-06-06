@@ -30,3 +30,19 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+@media (max-width: 520px) {
+    .container {
+        padding: 2.5rem 1rem;
+    }
+
+    .pageTitle {
+        font-size: clamp(2rem, 12vw, 2.65rem);
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+    }
+
+    .teamGrid {
+        gap: 1.25rem;
+    }
+}

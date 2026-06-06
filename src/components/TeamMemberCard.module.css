@@ -76,3 +76,35 @@
 .instagramButton:hover {
     opacity: 0.9;
 }
+
+@media (max-width: 520px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .imageWrapper {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+    .infoWrapper {
+        padding: 1.35rem 1rem 1.5rem;
+        min-height: 0;
+    }
+
+    .position {
+        font-size: 0.78rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .name {
+        font-size: 1.3rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    .tenure {
+        margin-bottom: 1rem;
+    }
+}

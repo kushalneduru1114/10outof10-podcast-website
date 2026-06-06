@@ -418,6 +418,7 @@
     .scene {
         justify-self: center;
         width: min(100%, 460px);
+        min-width: 0;
     }
 
     .widget {
@@ -426,8 +427,15 @@
 }
 
 @media (max-width: 520px) {
+    .scene {
+        width: 100%;
+    }
+
     .widget {
-        padding: 1rem;
+        padding: 0.85rem;
+        border-radius: 0.95rem;
+        transform: none !important;
+        transform-style: flat;
     }
 
     .floatBadge {
@@ -436,12 +444,57 @@
 
     .header {
         padding-left: 0;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .brand {
+        gap: 0.65rem;
+        min-width: 0;
+    }
+
+    .spotifyMark {
+        width: 2.45rem;
+        height: 2.45rem;
+        border-radius: 0.7rem;
+        flex: 0 0 auto;
+    }
+
+    .brand h2 {
+        font-size: 1rem;
+    }
+
+    .livePulse {
+        flex: 0 0 auto;
+        font-size: 0.72rem;
     }
 
     .player,
     .episodeRow,
     .footer {
         grid-template-columns: 1fr;
+    }
+
+    .player {
+        gap: 0.75rem;
+        padding: 0.85rem;
+    }
+
+    .albumArt {
+        width: min(8rem, 52vw);
+        justify-self: center;
+    }
+
+    .progressRow {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .progressRow span {
+        display: none;
+    }
+
+    .controls {
+        flex-wrap: wrap;
     }
 
     .volume,
@@ -452,5 +505,25 @@
 
     .volume {
         width: 100%;
+    }
+
+    .episodeList {
+        max-height: 16rem;
+    }
+
+    .episodeRow {
+        gap: 0.55rem;
+        padding: 0.75rem;
+    }
+
+    .episodeRow strong {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .footer {
+        gap: 0.65rem;
     }
 }

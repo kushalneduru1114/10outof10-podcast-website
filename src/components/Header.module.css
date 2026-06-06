@@ -155,3 +155,49 @@
         margin-right: 0.65rem;
     }
 }
+
+@media (max-width: 520px) {
+    .container {
+        padding: 0.8rem 0.75rem;
+    }
+
+    .logoContainer {
+        gap: 0.45rem;
+    }
+
+    .logoContainer > div {
+        width: 1.75rem !important;
+        height: 1.75rem !important;
+    }
+
+    .logoText {
+        font-size: clamp(0.9rem, 5vw, 1rem);
+        max-width: 11rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .themeButton,
+    .menuButton {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.55rem;
+    }
+
+    .themeButton {
+        margin-right: 0.45rem;
+    }
+
+    .mobileMenuOverlay {
+        justify-content: stretch;
+    }
+
+    .mobileMenuContent {
+        width: 100%;
+        padding: 5.5rem 1.25rem 2rem;
+    }
+
+    .mobileNavLink {
+        font-size: 1.05rem;
+    }
+}
