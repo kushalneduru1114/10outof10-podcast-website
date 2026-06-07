@@ -21,6 +21,7 @@ export default function BlogCard({ blog }) {
             src={blog.image}
             alt={`${blog.title} cover image`}
             fill
+            priority
             sizes="(max-width: 768px) 100vw, 360px"
             className={styles.image}
           />

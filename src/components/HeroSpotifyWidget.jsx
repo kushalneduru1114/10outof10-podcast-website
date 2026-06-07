@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { FaPause, FaPlay, FaSpotify, FaStepForward, FaVolumeUp } from 'react-icons/fa';
@@ -195,15 +196,12 @@ const HeroSpotifyWidget = () => {
     setDurationSeconds(selectedEpisode?.durationSeconds || 0);
     setPlaybackError('');
 
-    if (audioRef.current) {
+    if (audioRef.current && playAfterSelectionRef.current) {
+      playAfterSelectionRef.current = false;
       audioRef.current.load();
-
-      if (playAfterSelectionRef.current) {
-        playAfterSelectionRef.current = false;
-        audioRef.current.play().catch(() => {
-          setPlaybackError('Playback was blocked by the browser. Try pressing play again.');
-        });
-      }
+      audioRef.current.play().catch(() => {
+        setPlaybackError('Playback was blocked by the browser. Try pressing play again.');
+      });
     }
   }, [selectedEpisode?.id, selectedEpisode?.durationSeconds]);
 
@@ -316,7 +314,13 @@ const HeroSpotifyWidget = () => {
         </div>
 
         <div className={styles.player}>
-          <img src={artwork} alt="" className={styles.albumArt} />
+          <Image
+            src={artwork}
+            alt=""
+            width={160}
+            height={160}
+            className={styles.albumArt}
+          />
           <div className={styles.trackMeta}>
             <p>{selectedEpisode ? getEpisodeMeta(selectedEpisode) : 'Podcast Archive'}</p>
             <h3>{selectedEpisode?.title || 'Loading the full catalog'}</h3>
@@ -430,7 +434,7 @@ const HeroSpotifyWidget = () => {
         <audio
           ref={audioRef}
           src={selectedEpisode?.audioUrl || undefined}
-          preload="metadata"
+          preload="none"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => {

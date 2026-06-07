@@ -15,6 +15,7 @@ const TeamMemberCard = ({ member }) => {
           src={image}
           alt={fullName}
           fill
+          priority={member.id === 'tm7'}
           style={{ objectFit: 'cover' }}
           sizes="(max-width: 768px) 50vw, 33vw"
           className={styles.memberImage}

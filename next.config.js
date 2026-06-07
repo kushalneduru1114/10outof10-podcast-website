@@ -6,6 +6,17 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.ytimg.com',
+        pathname: '/vi/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd3t3ozftmdmh3i.cloudfront.net',
+        pathname: '/production/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd3t3ozftmdmh3i.cloudfront.net',
+        pathname: '/staging/**',
       },
     ],
   },

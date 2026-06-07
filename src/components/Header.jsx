@@ -54,7 +54,13 @@ const Header = () => {
       <div className={styles.container}>
         <TransitionLink href="/" className={styles.logoContainer} onClick={closeMenu}>
           <div style={{ position: 'relative', width: '2rem', height: '2rem' }}>
-            <Image src="/assets/logo-nobg.png" alt="Ten Out Of Ten logo" fill style={{ objectFit: 'contain' }} />
+            <Image
+              src="/assets/logo-nobg.png"
+              alt="Ten Out Of Ten logo"
+              fill
+              sizes="32px"
+              style={{ objectFit: 'contain' }}
+            />
           </div>
           <span className={styles.logoText}>TEN OUT OF TEN</span>
         </TransitionLink>

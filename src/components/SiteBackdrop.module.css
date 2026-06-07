@@ -57,14 +57,18 @@
     position: absolute;
     width: clamp(8rem, 16vw, 17rem);
     aspect-ratio: 16 / 9;
-    object-fit: cover;
     border-radius: 0.55rem;
     border: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
     opacity: 0.34;
     filter: blur(0.35px) contrast(0.9) brightness(0.68);
+    overflow: hidden;
     transform: rotate(var(--media-rotation, -4deg));
     animation: mediaDrift 18s ease-in-out infinite alternate;
+}
+
+.mediaImage {
+    object-fit: cover;
 }
 
 .mediaThumb[data-index='1'] {

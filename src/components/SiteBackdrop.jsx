@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import styles from './SiteBackdrop.module.css';
 
@@ -64,15 +65,20 @@ const SiteBackdrop = () => {
       <div className={styles.glowTwo} />
       <div ref={mediaLayerRef} className={styles.mediaLayer}>
         {MEDIA_BACKDROP_ITEMS.map((item, index) => (
-          <img
+          <span
             key={item.src}
-            src={item.src}
-            alt=""
             className={styles.mediaThumb}
             data-index={index + 1}
-            loading={index < 4 ? 'eager' : 'lazy'}
-            decoding="async"
-          />
+          >
+            <Image
+              src={item.src}
+              alt=""
+              fill
+              priority={index < 2}
+              sizes="(max-width: 760px) 36vw, 16vw"
+              className={styles.mediaImage}
+            />
+          </span>
         ))}
       </div>
       <svg ref={farLayerRef} className={styles.farLayer} viewBox="0 0 1440 1200" preserveAspectRatio="xMidYMid slice">

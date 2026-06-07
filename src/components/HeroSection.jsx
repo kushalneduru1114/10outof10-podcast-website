@@ -21,7 +21,7 @@ const HERO_STATS = [
       { value: '3', label: 'Seasons' },
     ],
   },
-  { value: 'Films', label: ['Presented &', 'Distributed'] },
+  { value: '10+ Films', label: 'Produced and Presented' },
 ];
 
 const HeroSection = () => {
