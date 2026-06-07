@@ -6,10 +6,10 @@ import styles from './TeamMemberCard.module.css';
 const TeamMemberCard = ({ member }) => {
   const { firstName, lastName, position, tenure, image, instagram } = member;
   const fullName = [firstName, lastName].filter(Boolean).join(' ');
-  const cardClassName = member.id === 'tm7' ? `${styles.card} ${styles.featuredCard}` : styles.card;
+  const nameClassName = member.id === 'tm7' ? `${styles.name} ${styles.compactName}` : styles.name;
 
   return (
-    <div className={cardClassName}>
+    <div className={styles.card}>
       <div className={styles.imageWrapper}>
         <Image
           src={image}
@@ -23,7 +23,7 @@ const TeamMemberCard = ({ member }) => {
       </div>
       <div className={styles.infoWrapper}>
         <h4 className={styles.position}>{position}</h4>
-        <h3 className={styles.name}>{fullName}</h3>
+        <h3 className={nameClassName}>{fullName}</h3>
         <p className={styles.tenure}>{tenure}</p>
 
         {instagram && (

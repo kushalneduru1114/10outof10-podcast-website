@@ -8,12 +8,6 @@
     backdrop-filter: blur(14px);
 }
 
-.featuredCard {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: min(100%, 760px);
-}
-
 .imageWrapper {
     position: relative;
     flex-shrink: 0;
@@ -59,6 +53,10 @@
     text-overflow: ellipsis;
 }
 
+.compactName {
+    font-size: clamp(0.92rem, 2.5vw, 1.18rem);
+}
+
 .tenure {
     font-size: 0.9rem;
     color: var(--site-muted);
@@ -81,18 +79,6 @@
 
 .instagramButton:hover {
     opacity: 0.9;
-}
-
-@media (min-width: 640px) {
-    .featuredCard .imageWrapper {
-        width: 35%;
-        aspect-ratio: 5 / 4;
-    }
-
-    .featuredCard .name {
-        overflow: visible;
-        text-overflow: clip;
-    }
 }
 
 @media (max-width: 520px) {
