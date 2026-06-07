@@ -285,7 +285,7 @@ const HeroSpotifyWidget = () => {
   };
 
   const progressMax = durationSeconds || selectedEpisode?.durationSeconds || 1;
-  const artwork = selectedEpisode?.image || '/assets/logo.svg';
+  const artwork = selectedEpisode?.image || '/assets/logo-nobg.png';
 
   return (
     <div className={styles.scene}>
@@ -421,10 +421,6 @@ const HeroSpotifyWidget = () => {
           <div>
             <strong>3</strong>
             <span>Seasons</span>
-          </div>
-          <div>
-            <strong>8+</strong>
-            <span>Films</span>
           </div>
           <Link href={SPOTIFY_SHOW_URL} target="_blank" rel="noopener noreferrer">
             Open Spotify

@@ -160,8 +160,8 @@
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 640px;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    max-width: 620px;
     gap: 0.75rem;
     margin: 2.5rem 0 0;
 }
@@ -183,6 +183,45 @@
 
 .stat dd {
     margin: 0.35rem 0 0;
+    color: var(--hero-muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.combinedStat {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.stat .statGroupLabel {
+    color: var(--hero-muted);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.stat .statMetrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.statMetrics span {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.statMetrics strong {
+    color: var(--site-purple-soft);
+    font-size: clamp(1.45rem, 4vw, 2rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.statMetrics small {
     color: var(--hero-muted);
     font-size: 0.82rem;
     font-weight: 700;

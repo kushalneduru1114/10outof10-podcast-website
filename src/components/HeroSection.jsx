@@ -14,9 +14,14 @@ const HERO_IMAGES = [
 ];
 
 const HERO_STATS = [
-  { value: '45', label: 'Episodes' },
-  { value: '3', label: 'Seasons' },
-  { value: 'Shorts', label: 'Presented & Distributed' },
+  {
+    label: 'Podcast Catalog',
+    metrics: [
+      { value: '45', label: 'Episodes' },
+      { value: '3', label: 'Seasons' },
+    ],
+  },
+  { value: 'Films', label: 'Presented & Distributed' },
 ];
 
 const HeroSection = () => {
@@ -71,9 +76,28 @@ const HeroSection = () => {
 
           <dl className={styles.stats}>
             {HERO_STATS.map((stat) => (
-              <div key={stat.label} className={styles.stat}>
-                <dt>{stat.value}</dt>
-                <dd>{stat.label}</dd>
+              <div
+                key={stat.label}
+                className={`${styles.stat} ${stat.metrics ? styles.combinedStat : ''}`}
+              >
+                {stat.metrics ? (
+                  <>
+                    <dt className={styles.statGroupLabel}>{stat.label}</dt>
+                    <dd className={styles.statMetrics}>
+                      {stat.metrics.map((metric) => (
+                        <span key={metric.label}>
+                          <strong>{metric.value}</strong>
+                          <small>{metric.label}</small>
+                        </span>
+                      ))}
+                    </dd>
+                  </>
+                ) : (
+                  <>
+                    <dt>{stat.value}</dt>
+                    <dd>{stat.label}</dd>
+                  </>
+                )}
               </div>
             ))}
           </dl>

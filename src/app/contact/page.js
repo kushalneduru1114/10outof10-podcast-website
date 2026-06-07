@@ -5,7 +5,7 @@ export const metadata = createPageMetadata({
     title: 'Contact',
     description: 'Contact Ten Out Of Ten for film submissions, collaborations, partnerships, and independent film presentation opportunities.',
     path: '/contact',
-    image: '/assets/logo.svg',
+    image: '/assets/logo-nobg.png',
     imageAlt: 'Contact Ten Out Of Ten',
 });
 
