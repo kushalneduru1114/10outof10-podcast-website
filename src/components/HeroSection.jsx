@@ -21,7 +21,7 @@ const HERO_STATS = [
       { value: '3', label: 'Seasons' },
     ],
   },
-  { value: 'Films', label: 'Presented & Distributed' },
+  { value: 'Films', label: ['Presented &', 'Distributed'] },
 ];
 
 const HeroSection = () => {
@@ -95,7 +95,11 @@ const HeroSection = () => {
                 ) : (
                   <>
                     <dt>{stat.value}</dt>
-                    <dd>{stat.label}</dd>
+                    <dd>
+                      {Array.isArray(stat.label)
+                        ? stat.label.map((line) => <span key={line}>{line}</span>)
+                        : stat.label}
+                    </dd>
                   </>
                 )}
               </div>

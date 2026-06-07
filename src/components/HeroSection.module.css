@@ -186,7 +186,12 @@
     color: var(--hero-muted);
     font-size: 0.82rem;
     font-weight: 700;
+    line-height: 1.25;
     text-transform: uppercase;
+}
+
+.stat dd span {
+    display: block;
 }
 
 .combinedStat {
