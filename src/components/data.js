@@ -96,6 +96,18 @@ export const BLOGS = [
     image: '/assets/blog/tiff-2025-02.jpeg',
     gallery: TIFF_POST_GALLERY,
   },
+  {
+    id: 'Anand anna blog',
+    title: 'NO C IN CINEMA: HOW CONTEMPORARY TELUGU FILMS IGNORE CASTE',
+    subtitle: 'A Personal Essay',
+    slug: 'NO-C-IN-CINEMA-:-HOW-CONTEMPORARY-TELUGU-FILMS-IGNORE-CASTE',
+    description: 'skndkndmnmn',
+    metaDescription: 'Read Anand anna's blog',
+    date: 'June 8, 2026',
+    content: ANAND_BLOG_CONTENT,
+    image: '/assets/blog/tiff-2025-02.jpeg',
+    gallery: ANAND_BLOG_GALLERY,
+  },
 ];
 
 export const COMPLETED_WORKS = [
