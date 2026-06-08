@@ -1,4 +1,4 @@
-// Generated from Blog/Attending The Toronto International Film Festival.pdf.
+// Generated from Blog/NO C IN CINEMA: HOW CONTEMPORARY TELUGU FILMS IGNORE CASTE.pdf.
 // Edit the source PDF or regenerate this file if the article changes.
 
 export const ANAND_BLOG_CONTENT = [
