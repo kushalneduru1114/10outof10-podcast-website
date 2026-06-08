@@ -101,7 +101,7 @@ export const BLOGS = [
     id: 'Anand anna blog',
     title: 'NO C IN CINEMA: HOW CONTEMPORARY TELUGU FILMS IGNORE CASTE',
     subtitle: 'A Personal Essay',
-    slug: 'NO-C-IN-CINEMA-:-HOW-CONTEMPORARY-TELUGU-FILMS-IGNORE-CASTE',
+    slug: 'no-c-in-cinema-how-contemporary-telugu-films-ignore-caste',
     description: 'skndkndmnmn',
     metaDescription: 'Read Anand anna blog',
     date: 'June 8, 2026',
