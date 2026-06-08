@@ -1,4 +1,5 @@
 import { TIFF_POST_CONTENT, TIFF_POST_GALLERY } from './tiffPostContent';
+import { ANAND_BLOG_CONTENT, ANAND_BLOG_GALLERY } from './AnandAnnaBlog';
 
 export const SPOTIFY_SHOW_URL = 'https://open.spotify.com/show/1K9g6ClNj9TIK1CuAs5aOc?si=jppXn7UFQkemWFuGvJu6Dg';
 
@@ -102,7 +103,7 @@ export const BLOGS = [
     subtitle: 'A Personal Essay',
     slug: 'NO-C-IN-CINEMA-:-HOW-CONTEMPORARY-TELUGU-FILMS-IGNORE-CASTE',
     description: 'skndkndmnmn',
-    metaDescription: 'Read Anand anna's blog',
+    metaDescription: 'Read Anand anna blog',
     date: 'June 8, 2026',
     content: ANAND_BLOG_CONTENT,
     image: '/assets/blog/tiff-2025-02.jpeg',
