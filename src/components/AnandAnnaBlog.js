@@ -1,0 +1,41 @@
+// Generated from Blog/Attending The Toronto International Film Festival.pdf.
+// Edit the source PDF or regenerate this file if the article changes.
+
+export const ANAND_BLOG_CONTENT = [
+  "“Shakespeare asks, what is in a name. Well, maybe he should visit India to truly understand what a name carries,” says Neeraj Ghaywan, director of Homebound, during his conversation with cinema legend Martin Scorsese. In Telugu cinema, however, this question often meets a shallow answer. We repeatedly flatten its meaning by stereotyping heroes through film titles that openly celebrate upper caste identities. Names become markers of power rather than identity.",
+  "The problem does not stop there. Star filmmakers like Trivikram and Rajamouli are often criticised for the quiet, underlying casteism that runs beneath their narratives. Even legends like K Viswanath, who thankfully attempted to question caste through their films, are frequently critiqued for carrying a Brahmanical gaze. This contradiction alone exposes the complexity caste holds in our society. Whether one agrees or not, caste plays a role in nearly every decision life leads us to. To not acknowledge privilege is not ignorance, it is denial. And for artists of our time to avoid making people aware of this reality is not just careless, it is deeply irresponsible.",
+  "Every liberal art form rises as a rebellion against inequality. Words build empires, plays burn palaces, books redirect the course of history, and songs make even the strongest fascist bleed. Every era discovers its own artistic weapon. Today, that weapon is cinema, the most accessible and influential art form of our time.",
+  "Yet in a land where Sri Sri shakes invisible wheels of oppression that run centuries deep, where Kaloji Narayana Rao questions power with quiet humanism, where Volga dismantles patriarchy through fearless feminist thought, and where Gaddar’s voice thunders through the bones of the powerful, cinema now behaves like a snack time distraction. A spectacle to consume, not a truth to confront.",
+  "Cinematography without a camera is nothing, a story without conflict is hollow, cinema without C is incomplete, and Indian cinema without caste is silent.",
+  "Telugu films today love to speak about the rich and the poor, the elite and the commoner, high society and the lower middle class. But they almost never touch the real spine of these divides. They never ask why some characters walk into rooms with ready made power, or why others remain unseen no matter how hard they struggle. Caste sits behind every frame like an unspoken ghost, shaping privilege, violence, hierarchy, and conflict.",
+  "Every story has an oppressed man fighting his oppressor. RRR, Pushpa, Chaava, and many more follow this formula. But the real problem for Telugu filmmakers and audiences begins when the oppression is named. When it is called caste. That is when discomfort rises. That is when fear surfaces. Because the moment caste is named, people are forced to confront their own privilege, something they are deeply unwilling to do.",
+  "This silence also manifests in language. Words like Chandalam and Daridram, born from caste hierarchies, are casually thrown around in films and daily conversations as insults, jokes, or dramatic emphasis. Their violent histories are erased, reduced to slang, making caste discrimination feel normal, invisible, and socially acceptable. Telugu Cinema does not challenge this normalisation, it amplifies it. ",
+  "Filmmakers erase uncomfortable history, systemic inequality, and cultural memory that caste carries. What remains is a polished and harmless version of social conflict, one that offends no one, questions nothing, and ends conveniently with a punch or a moral line.",
+  "This is precisely why filmmakers like Pa Ranjith and Mari Selvaraj face such intense resistance. They break the long held belief that stories of the oppressed should remain locked inside art films. They place caste politics at the heart of commercial cinema and prove that truth can also fill theatres, that courage can also collect crores. While they reshape Tamil cinema, Telugu filmmakers cannot even gather the courage to examine their own caste privilege. Forget shattering conventions, many cannot even acknowledge them.",
+  "This silence is not accidental. Telugu cinema understands the weight of caste politics, the risks, the sensitivities, and the potential backlash. So it chooses safety. It reduces caste to costume choices, dialect quirks, and geography. It blurs identities and builds a fictional world where oppression has no name yet exists everywhere, and injustice has no roots yet grows endlessly.",
+  "But let us set this avoidance aside for a moment. Are the contemporary writers and directors, who are expected to mirror society, even aware of how dominant caste privilege operates in their own lives. I seriously doubt it. Caste influences access, confidence, opportunity, and authority. To deny this privilege is not stupidity, it is convenience.",
+  "In a promotional interview for Sir, released in 2022, Venky Atluri proudly shared his so called unpopular opinion that reservations should be based on merit and not caste. The statement exposes an amateur understanding of history more than anything else. Yadhu Vamshi, director of the sleeper hit Committee Kurrollu, builds an entire film around the same shallow argument.",
+  "ETV Win, despite enjoying a successful year, released Ram Weds Ramabai, a film about the toxic honour attached to caste, yet casually promoted a song from their blockbuster Little Hearts, naming it Chapri, a casteist slur. P Mahesh Babu, director of the acclaimed Andhra King Taluka, openly admitted that he avoids showing caste because he prefers to sugarcoat reality.",
+  "Are these the filmmakers we are expected to place our hopes in? Or did Telugu cinema sell its conscience the day many entered the industry? Have they now become mere puppets moving to the will of financiers, who themselves often belong to the very castes that hold social power?",
+  "The first person who ever invented stories would be ashamed to see what we have reduced this art form to today.",
+  "Then comes the predictable argument. Is the audience ready for such stories? In a society where caste flows through every strand of hair, will people accept it when the truth stands right in front of them? ",
+  "For all the noise Telugu audiences make against filmmakers like Pa Ranjith and Mari Selvaraj, one must question whether the average moviegoer still possesses the critical thinking needed to engage with such cinema. Decades of mind-numbing storytelling have frozen the audience’s reading of cinema long ago.",
+  "The fault also lies with the education system and households. Both teach caste in watered down and comfortable ways, ensuring no one feels the heat, ensuring the system remains intact.",
+  "Artists once saw truth-telling as a responsibility. Perhaps expecting that courage today is naive. Perhaps comfort sells better. Perhaps silence protects.",
+  "A society that fears its own truth can never create fearless cinema. As long as caste remains unspoken, every story feels unfinished. The moment a filmmaker faces this silence and speaks, Telugu cinema breathes for the first time. The day we stop hiding and show the world as it is, our cinema becomes art again and truly becomes global. For all the courageous heroes we write, I hope our contemporary makers also choose courage. I hope Telugu filmmakers understand the weight of the influence they carry, and the immense power this medium holds over Telugu lives, minds, and culture. ",
+  "Endukante, mana Telugu vaallaki telisindi okate,",
+  "CINEMA, CINEMA, CINEMA."
+];
+
+export const ANAND_BLOG_GALLERY = [
+  "/assets/blog/tiff-2025-01.jpeg",
+  "/assets/blog/tiff-2025-02.jpeg",
+  "/assets/blog/tiff-2025-03.jpeg",
+  "/assets/blog/tiff-2025-04.jpeg",
+  "/assets/blog/tiff-2025-05.jpeg",
+  "/assets/blog/tiff-2025-06.jpeg",
+  "/assets/blog/tiff-2025-07.jpeg",
+  "/assets/blog/tiff-2025-08.jpeg",
+  "/assets/blog/tiff-2025-09.jpeg",
+  "/assets/blog/tiff-2025-10.jpeg"
+];
