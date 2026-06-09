@@ -99,7 +99,7 @@ export const BLOGS = [
   },
   {
     id: 'Anand anna blog',
-    title: 'NO C IN CINEMA: HOW CONTEMPORARY TELUGU FILMS IGNORE CASTE',
+    title: 'No ‘C’ in Cinema: How Contemporary Telugu Films Ignore Caste',
     subtitle: 'A Personal Essay',
     slug: 'no-c-in-cinema-how-contemporary-telugu-films-ignore-caste',
     description: 'skndkndmnmn',
