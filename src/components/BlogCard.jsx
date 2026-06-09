@@ -33,6 +33,7 @@ export default function BlogCard({ blog }) {
         <h3 className={styles.title} style={{ color: isHovered ? '#c7a7ff' : '#ffffff' }}>
           {blog.title}
         </h3>
+        <p className={styles.description}>{blog.description}</p>
         <p className={styles.date}>{blog.date}</p>
         <p className={styles.description}>{blog.description}</p>
       </div>
