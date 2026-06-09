@@ -91,7 +91,7 @@ export const BLOGS = [
     subtitle: 'A Personal Essay',
     slug: 'no-c-in-cinema-how-contemporary-telugu-films-ignore-caste',
     name: 'Anonymous',
-    description: 'skndkndmnmn',
+    description: 'Telugu cinema constantly portrays oppression, power, and social conflict, yet rarely dares to name the force that shapes them all: caste.',
     metaDescription: 'Read Anand anna blog',
     date: 'June 8, 2026',
     content: ANAND_BLOG_CONTENT,
