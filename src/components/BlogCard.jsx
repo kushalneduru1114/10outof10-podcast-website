@@ -37,9 +37,6 @@ export default function BlogCard({ blog }) {
         <p className={styles.description}>{blog.description}</p>
       </div>
 
-      <div className={styles.readMoreButton}>
-        Read Blog
-      </div>
     </TransitionLink>
   );
 }
