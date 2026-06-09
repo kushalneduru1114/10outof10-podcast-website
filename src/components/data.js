@@ -1,5 +1,5 @@
-import { TIFF_POST_CONTENT, TIFF_POST_GALLERY } from './tiffPostContent';
 import { ANAND_BLOG_CONTENT, ANAND_BLOG_GALLERY } from './AnandAnnaBlog';
+import { TIFF_POST_CONTENT, TIFF_POST_GALLERY } from './tiffPostContent';
 
 export const SPOTIFY_SHOW_URL = 'https://open.spotify.com/show/1K9g6ClNj9TIK1CuAs5aOc?si=jppXn7UFQkemWFuGvJu6Dg';
 
@@ -86,18 +86,6 @@ export const GUESTS = [
 // --- BLOG DATA ARRAY ---
 export const BLOGS = [
   {
-    id: 'tiff-2025',
-    title: 'Attending The Toronto International Film Festival',
-    subtitle: 'A Personal Essay',
-    slug: 'attending-the-toronto-international-film-festival',
-    description: 'A personal essay on attending TIFF 2025 with a media pass, navigating screenings, festival culture, and what the experience meant for Ten Out Of Ten.',
-    metaDescription: 'Read Ten Out Of Ten founder Pranav Bellary on attending TIFF 2025, covering festival screenings, filmmaker encounters, and the value of cinema culture.',
-    date: 'June 6, 2026',
-    content: TIFF_POST_CONTENT,
-    image: '/assets/blog/tiff-2025-02.jpeg',
-    gallery: TIFF_POST_GALLERY,
-  },
-  {
     id: 'Anand anna blog',
     title: 'No ‘C’ in Cinema: How Contemporary Telugu Films Ignore Caste',
     subtitle: 'A Personal Essay',
@@ -108,6 +96,18 @@ export const BLOGS = [
     content: ANAND_BLOG_CONTENT,
     image: '/assets/blog/tiff-2025-02.jpeg',
     gallery: ANAND_BLOG_GALLERY,
+  },
+  {
+    id: 'tiff-2025',
+    title: 'Attending The Toronto International Film Festival',
+    subtitle: 'A Personal Essay',
+    slug: 'attending-the-toronto-international-film-festival',
+    description: 'A personal essay on attending TIFF 2025 with a media pass, navigating screenings, festival culture, and what the experience meant for Ten Out Of Ten.',
+    metaDescription: 'Read Ten Out Of Ten founder Pranav Bellary on attending TIFF 2025, covering festival screenings, filmmaker encounters, and the value of cinema culture.',
+    date: 'June 6, 2026',
+    content: TIFF_POST_CONTENT,
+    image: '/assets/blog/tiff-2025-02.jpeg',
+    gallery: TIFF_POST_GALLERY,
   },
 ];
 
