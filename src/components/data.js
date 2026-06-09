@@ -95,7 +95,7 @@ export const BLOGS = [
     metaDescription: 'Read Anand anna blog',
     date: 'June 8, 2026',
     content: ANAND_BLOG_CONTENT,
-    image: '/assets/blog/tiff-2025-02.jpeg',
+    image: '/assets/blog/caste-blog-main-picture.jpeg',
     gallery: ANAND_BLOG_GALLERY,
   },
   {
