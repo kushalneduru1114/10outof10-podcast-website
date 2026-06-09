@@ -28,14 +28,5 @@ export const ANAND_BLOG_CONTENT = [
 ];
 
 export const ANAND_BLOG_GALLERY = [
-  "/assets/blog/tiff-2025-01.jpeg",
-  "/assets/blog/tiff-2025-02.jpeg",
-  "/assets/blog/tiff-2025-03.jpeg",
-  "/assets/blog/tiff-2025-04.jpeg",
-  "/assets/blog/tiff-2025-05.jpeg",
-  "/assets/blog/tiff-2025-06.jpeg",
-  "/assets/blog/tiff-2025-07.jpeg",
-  "/assets/blog/tiff-2025-08.jpeg",
-  "/assets/blog/tiff-2025-09.jpeg",
-  "/assets/blog/tiff-2025-10.jpeg"
+  
 ];
